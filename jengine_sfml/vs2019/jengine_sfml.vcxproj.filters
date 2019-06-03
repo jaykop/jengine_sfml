@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="core">
+      <UniqueIdentifier>{16bae76c-3a8c-4511-8307-522827bab14c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="systems">
+      <UniqueIdentifier>{85e6a553-2a3f-44c2-8ba5-cbbc4007f559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="systems\graphics">
+      <UniqueIdentifier>{fba8544d-1a12-4c7c-b032-4619cebddc2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{f8b87caf-d2b8-4527-8bc4-68a65a671816}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\math">
+      <UniqueIdentifier>{8c1f24fa-ae81-49f8-bef5-2e52c0f8f7e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\json">
+      <UniqueIdentifier>{8d97ce42-81cb-4159-b994-fdde95aba683}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\app">
+      <UniqueIdentifier>{bb46fdbd-8556-4232-8a70-ecf4807ff807}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\scene">
+      <UniqueIdentifier>{0bf8033f-6640-4887-9a53-348a0f8218fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\object">
+      <UniqueIdentifier>{76bef3a6-9bd4-4af6-800e-a48d1eab60b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\opengl">
+      <UniqueIdentifier>{ed002979-d8cd-44b5-8a9d-502b2fd81439}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\input">
+      <UniqueIdentifier>{f0f0ee37-fe12-4734-a67e-6498134dae25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\component">
+      <UniqueIdentifier>{0d746878-2183-4d78-a153-3f61816d87c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\asset">
+      <UniqueIdentifier>{b44c7eed-78ec-4369-8dbd-97f11c8d7c02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\allocator">
+      <UniqueIdentifier>{891af287-8a65-4289-b300-53a9cacacb95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\timer">
+      <UniqueIdentifier>{a76df4cc-5371-4967-857e-74b60263a5bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\debug_console">
+      <UniqueIdentifier>{13cc8818-501d-4576-8d73-ddeacae338c1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\jengine\application.hpp">
+      <Filter>core\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\macros.hpp" />
+    <ClInclude Include="..\..\include\jengine\scene_manager.hpp">
+      <Filter>core\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\scene.hpp">
+      <Filter>core\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\timer.hpp">
+      <Filter>utils\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\debug_console.hpp">
+      <Filter>utils\debug_console</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\application.cpp">
+      <Filter>core\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_manager.cpp">
+      <Filter>core\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene.cpp">
+      <Filter>core\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\timer.cpp">
+      <Filter>utils\timer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\debug_console.cpp">
+      <Filter>utils\debug_console</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
