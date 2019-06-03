@@ -20,17 +20,28 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\application.cpp" />
+    <ClCompile Include="..\..\src\BehaviorSystem.cpp" />
     <ClCompile Include="..\..\src\debug_console.cpp" />
+    <ClCompile Include="..\..\src\json_parser.cpp" />
+    <ClCompile Include="..\..\src\PhysicsSystem.cpp" />
     <ClCompile Include="..\..\src\scene.cpp" />
+    <ClCompile Include="..\..\src\scene_controller.cpp" />
     <ClCompile Include="..\..\src\scene_manager.cpp" />
+    <ClCompile Include="..\..\src\SoundSystem.cpp" />
     <ClCompile Include="..\..\src\timer.cpp" />
+    <ClCompile Include="..\..\src\GraphicSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\jengine\application.hpp" />
+    <ClInclude Include="..\..\include\jengine\BehaviorSystem.hpp" />
     <ClInclude Include="..\..\include\jengine\debug_console.hpp" />
+    <ClInclude Include="..\..\include\jengine\GraphicSystem.hpp" />
+    <ClInclude Include="..\..\include\jengine\json_parser.hpp" />
     <ClInclude Include="..\..\include\jengine\macros.hpp" />
+    <ClInclude Include="..\..\include\jengine\PhysicsSystem.hpp" />
     <ClInclude Include="..\..\include\jengine\scene.hpp" />
     <ClInclude Include="..\..\include\jengine\scene_manager.hpp" />
+    <ClInclude Include="..\..\include\jengine\SoundSystem.hpp" />
     <ClInclude Include="..\..\include\jengine\timer.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -110,7 +121,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,7 +133,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,7 +147,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,7 +163,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

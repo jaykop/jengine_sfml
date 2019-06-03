@@ -17,3 +17,15 @@ Contains the engine's generic macros
 #define jeBegin	namespace JE {
 #define jeEnd	}
 #endif
+
+// Debug printing
+#define jeDoPrint
+#if defined(_DEBUG) && defined(jeDoPrint)
+#include <cstdio>
+#define jeDebugPrint(...) printf(__VA_ARGS__)
+#else
+#define jeDebugPrint(...) jeUnused(__VA_ARGS__)
+#endif 
+
+// Set variable as unreferenced
+#define jeUnused(unused) (void)unused

@@ -17,6 +17,10 @@ Contains the definition of Scene class
 jeBegin
 
 class ObjectContainer;
+class SoundSystem;
+class PhysicsSystme;
+class GraphicsSystem;
+class BehaviorSystem;
 
 // Generic scene class
 class Scene {
@@ -30,6 +34,9 @@ public:
 
 private:
 
+	static void BindSystems();
+	static void UnbindSystems();
+
 	Scene(const char* name);
 	~Scene();
 
@@ -41,9 +48,25 @@ private:
 
 	void clear_container();
 
-	Scene* lastScene_;
-	std::string	name_, directory_;
-	ObjectContainer* objContainer_;
+	Scene* lastScene_ = nullptr; // pointer to the last scene (before this scene)
+	std::string	name_, // scene name
+		directory_; // directory of this scene
+
+	// container
+	ObjectContainer* objContainer_ = nullptr;
+
+	// Systems 
+	static SoundSystem* soundSystem_;
+	static PhysicsSystme* physicsSystem_;
+	static GraphicsSystem* graphicSystem_;
+	static BehaviorSystem* behaviorSystem_;
+
+	// Prevent to clone this class
+	Scene() = delete;
+	Scene(Scene&&) = delete;
+	Scene(const Scene&) = delete;
+	Scene& operator= (Scene&&) = delete;
+	Scene& operator= (const Scene&) = delete;
 };
 
 jeEnd

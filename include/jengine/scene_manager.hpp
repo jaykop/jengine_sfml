@@ -15,8 +15,8 @@ Contains the definition of SceneManager class
 // Main scene manager class
 #include <vector>
 #include <string>
-#include <Window.hpp>
 #include <timer.hpp>
+#include <Window.hpp>
 
 jeBegin
 
@@ -26,6 +26,9 @@ using Scenes = std::vector<Scene*>;
 
 class SceneManager {
 
+	friend class Application;
+
+	// enum indicates the status of the current scene
 	enum SceneStatus {
 		JE_STATE_NONE, 
 		JE_STATE_RESTART, 
@@ -38,6 +41,7 @@ class SceneManager {
 
 public:
 
+	// methods to control the scenes
 	static void quit();
 	static void restart();
 	static void resume();
@@ -47,35 +51,39 @@ public:
 	static void resume_and_next(const char* nextState);
 	static void set_first_scene(const char* stateName);
 
-	static SceneStatus	get_status(void);
+	static SceneStatus get_status(void);
 	static Scene* get_current_scene(void);
 	static Scene* get_scene(const char* stateName);
-	static bool	has_state(const char* stateName);
-	static float get_current_time();
-	static float get_frame_rate();
+	static bool	has_scene(const char* stateName);
+
+	// methods to get frame and time info
+	static float get_elapsed_time();
+	static float get_framerate();
 	static unsigned	get_frame_per_second();
 
 private:
 
-	// Private member functions
-	static bool intialize(SDL_Window* pWindow);
-	static void update(SDL_Event* pEvent);
+	static bool initialize(sf::Window* window);
+	static void update(sf::Event* event);
 	static void close();
 
+	// methods to control scenes
 	static void push_scene(const char* path, const char* stateName);
 	static void pop_scene(const char* stateName);
 
 	static void change_scene();
 	static void clear_scenes();
 
-	// Private member variables
-	static float frameTime_;
-	static unsigned frames_;
+	// frame and timer
+	static int frames_;
 	static Timer timer_;
-	static Scenes states_;
-	static SceneStatus status__;
-	static Scene* current_, * next;
-	static sf::Window * window_;
+	static float frameTime_;
+
+	// scene info
+	static Scenes scenes_;
+	static SceneStatus status_;
+	static Scene* currentScene_, *nextScene_;
+	static sf::Window *window_;
 	static std::string	firstState_;
 
 	// Prevent to clone this class
@@ -87,7 +95,5 @@ private:
 	SceneManager& operator= (const SceneManager&) = delete;
 
 };
-
-using STATE = SceneManager;
 
 jeEnd

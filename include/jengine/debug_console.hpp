@@ -20,7 +20,7 @@ Contains the definition of the debug console
 namespace DebugTools
 {
 	//These functios should NOT be called
-	bool assert(int expression, const char* outputMessage,
+	bool debug_assert(int expression, const char* outputMessage,
 		const char* functionName, const char* fileName,
 		unsigned lineNumber);
 
@@ -36,7 +36,7 @@ namespace DebugTools
 #if defined (_DEBUG)
 
 //Use this macro instead of the function to ASSERT in debug only
-#define DEBUG_ASSERT(exp, srt) if(DebugTools::Assert((exp), (srt),	\
+#define DEBUG_ASSERT(exp, srt) if(DebugTools::debug_assert((exp), (srt),	\
 	__FUNCTION__, __FILE__, __LINE__))								\
 {																	\
 	DebugBreak();													\

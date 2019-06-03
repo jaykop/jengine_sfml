@@ -26,7 +26,7 @@ namespace DebugTools
 	\param lineNumber - show the line number where crashed
 	*/
 	/******************************************************************************/
-	bool assert(int expression, const char* msg,
+	bool debug_assert(int expression, const char* msg,
 		const char* functionName, const char* fileName,
 		unsigned lineNumber)
 	{

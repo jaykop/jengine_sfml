@@ -33,13 +33,14 @@ public:
 	};
 
 	static void open_console();
-	static void run(const AppData& data);
+	static void run();
 	static void close_console();
 
 	static AppData get_appdata();
 	static void set_screensize(int w, int h);
 	static void set_title(const std::string& title);
 	static void set_fullscreen(bool isFullScreen);
+	static void set_data_directory(const char* directory);
 
 private:
 
@@ -50,6 +51,7 @@ private:
 	static AppData data_;		
 	static sf::Event event_;
 	static sf::Window window_;
+	static std::string dataDirectory_;
 
 	// Prevent to clone this class
 	Application() = delete;

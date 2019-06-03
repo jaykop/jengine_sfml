@@ -1,15 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="core">
-      <UniqueIdentifier>{16bae76c-3a8c-4511-8307-522827bab14c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="systems">
-      <UniqueIdentifier>{85e6a553-2a3f-44c2-8ba5-cbbc4007f559}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="systems\graphics">
-      <UniqueIdentifier>{fba8544d-1a12-4c7c-b032-4619cebddc2c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="utils">
       <UniqueIdentifier>{f8b87caf-d2b8-4527-8bc4-68a65a671816}</UniqueIdentifier>
     </Filter>
@@ -18,6 +9,15 @@
     </Filter>
     <Filter Include="utils\json">
       <UniqueIdentifier>{8d97ce42-81cb-4159-b994-fdde95aba683}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\timer">
+      <UniqueIdentifier>{a76df4cc-5371-4967-857e-74b60263a5bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\debug_console">
+      <UniqueIdentifier>{13cc8818-501d-4576-8d73-ddeacae338c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{16bae76c-3a8c-4511-8307-522827bab14c}</UniqueIdentifier>
     </Filter>
     <Filter Include="core\app">
       <UniqueIdentifier>{bb46fdbd-8556-4232-8a70-ecf4807ff807}</UniqueIdentifier>
@@ -43,11 +43,20 @@
     <Filter Include="core\allocator">
       <UniqueIdentifier>{891af287-8a65-4289-b300-53a9cacacb95}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utils\timer">
-      <UniqueIdentifier>{a76df4cc-5371-4967-857e-74b60263a5bf}</UniqueIdentifier>
+    <Filter Include="system">
+      <UniqueIdentifier>{85e6a553-2a3f-44c2-8ba5-cbbc4007f559}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utils\debug_console">
-      <UniqueIdentifier>{13cc8818-501d-4576-8d73-ddeacae338c1}</UniqueIdentifier>
+    <Filter Include="system\graphics">
+      <UniqueIdentifier>{fba8544d-1a12-4c7c-b032-4619cebddc2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="system\physics">
+      <UniqueIdentifier>{3264dc16-a235-4006-bb11-776d05cd6b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="system\sound">
+      <UniqueIdentifier>{ceee8b76-1f76-4708-aef5-db5ae660c5af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="system\behavior">
+      <UniqueIdentifier>{536bcc24-595a-45a8-99b4-3bfaf0eb4f88}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +76,21 @@
     <ClInclude Include="..\..\include\jengine\debug_console.hpp">
       <Filter>utils\debug_console</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\jengine\GraphicSystem.hpp">
+      <Filter>system\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\PhysicsSystem.hpp">
+      <Filter>system\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\SoundSystem.hpp">
+      <Filter>system\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\BehaviorSystem.hpp">
+      <Filter>system\behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\json_parser.hpp">
+      <Filter>utils\json</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\application.cpp">
@@ -83,6 +107,24 @@
     </ClCompile>
     <ClCompile Include="..\..\src\debug_console.cpp">
       <Filter>utils\debug_console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GraphicSystem.cpp">
+      <Filter>system\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\PhysicsSystem.cpp">
+      <Filter>system\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SoundSystem.cpp">
+      <Filter>system\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\BehaviorSystem.cpp">
+      <Filter>system\behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_controller.cpp">
+      <Filter>core\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\json_parser.cpp">
+      <Filter>utils\json</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
