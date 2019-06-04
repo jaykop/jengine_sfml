@@ -19,17 +19,26 @@ PhysicsSystme* Scene::physicsSystem_ = nullptr;
 GraphicsSystem* Scene::graphicSystem_ = nullptr;
 BehaviorSystem* Scene::behaviorSystem_ = nullptr;
 
-void Scene::BindSystems()
+void Scene::bind_system()
 {
+	//soundSystem_ = ;
+	//physicsSystem_ = ;
+	//graphicSystem_ = ;
+	//behaviorSystem_ = ;
 }
 
-void Scene::UnbindSystems()
+void Scene::unbind_system()
 {
+	//soundSystem_;
+	//physicsSystem_;
+	//graphicSystem_;
+	//behaviorSystem_;
 }
 
 Scene::Scene(const char* name)
 {
-
+	// assign the scene name
+	name_.assign(name);
 }
 
 Scene::~Scene()

@@ -34,8 +34,8 @@ public:
 
 private:
 
-	static void BindSystems();
-	static void UnbindSystems();
+	static void bind_system();
+	static void unbind_system();
 
 	Scene(const char* name);
 	~Scene();

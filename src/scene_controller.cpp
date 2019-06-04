@@ -17,7 +17,7 @@ Contains the methods of SceneManager class
 jeBegin
 
 Scenes SceneManager::scenes_;
-std::string	SceneManager::firstState_;
+std::string	SceneManager::firstScene_;
 Scene* SceneManager::nextScene_ = nullptr;
 
 void SceneManager::change_scene()
@@ -126,13 +126,13 @@ void SceneManager::set_first_scene(const char* stateName)
 {
 	// if the first scene is blank,
 	// take this parameter
-	if (firstState_.empty())
-		firstState_.assign(stateName);
+	if (firstScene_.empty())
+		firstScene_.assign(stateName);
 
 	// unless, find the correct scene from the vector
 	for (auto it = scenes_.begin(); it != scenes_.end(); ++it) {
 
-		if (!strcmp((*it)->name_.c_str(), firstState_.c_str()))
+		if (!strcmp((*it)->name_.c_str(), firstScene_.c_str()))
 			nextScene_ = currentScene_ = (*it);
 	}
 
@@ -145,12 +145,8 @@ void SceneManager::quit()
 
 void SceneManager::restart()
 {
-	if (is_paused()) {
-		DEBUG_ASSERT(0, "Cannot restart on a pause scene");
-	}
-
-	else
-		status_ = JE_STATE_RESTART;
+	DEBUG_ASSERT(!is_paused(), "Cannot restart on a pause scene");
+	status_ = JE_STATE_RESTART;
 }
 
 bool SceneManager::is_paused()
@@ -168,35 +164,28 @@ SceneManager::SceneStatus SceneManager::get_status(void)
 void SceneManager::set_next_scene(const char* nextState)
 {
 	// current state is the state
-	if (!strcmp(currentScene_->name_.c_str(), nextState)) {
-		DEBUG_ASSERT(0, "The scene you are trying to set is the current scene");
+	DEBUG_ASSERT(!strcmp(currentScene_->name_.c_str(), nextState),
+		"The scene you are trying to set is the current scene");
+
+	// if there is no scene to resume
+	DEBUG_ASSERT(!currentScene_->lastScene_, 
+		"Cannot change on a pause scene.\nUse resume_and_next function");
+
+	if (has_scene(nextState)) {
+		nextScene_ = get_scene(nextState);
+		status_ = JE_STATE_CHANGE;
 	}
-
-	else {
-
-		// if there is no scene to resume
-		if (!currentScene_->lastScene_) {
-
-			if (has_scene(nextState)) {
-				nextScene_ = get_scene(nextState);
-				status_ = JE_STATE_CHANGE;
-			}
-		}
-
-		else
-			DEBUG_ASSERT(0, "Cannot change on a pause scene.\nUse resume_and_next function");
-	}
+		
 }
 
 void SceneManager::pause(const char* nextState)
 {
 	// current state is the state
-	if (!strcmp(currentScene_->name_.c_str(), nextState)) {
-		DEBUG_ASSERT(0, "The scene you are trying to set is the current scene");
-	}
+	DEBUG_ASSERT(!strcmp(currentScene_->name_.c_str(), nextState), 
+		"The scene you are trying to set is the current scene");
 
 	// set the pause state
-	else if (has_scene(nextState)) {
+	if (has_scene(nextState)) {
 		nextScene_ = get_scene(nextState);
 		status_ = JE_STATE_PAUSE;
 	}
@@ -205,11 +194,8 @@ void SceneManager::pause(const char* nextState)
 void SceneManager::resume()
 {
 	// Check state to resume
-	if (currentScene_->lastScene_)
-		status_ = JE_STATE_RESUME;
-
-	else
-		DEBUG_ASSERT(0, "No state to resume");
+	DEBUG_ASSERT(currentScene_->lastScene_ != nullptr, "No state to resume");
+	status_ = JE_STATE_RESUME;
 }
 
 void SceneManager::resume_and_next(const char* nextState)
@@ -234,7 +220,6 @@ Scene* SceneManager::get_scene(const char* stateName)
 
 	// If there is no,
 	DEBUG_ASSERT(0, "No such name of scene");
-
 	return nullptr;
 }
 
@@ -250,10 +235,7 @@ bool SceneManager::has_scene(const char* stateName)
 		}
 	}
 
-	if (!found) {
-		DEBUG_ASSERT(0, "No such name of scene");
-	}
-
+	DEBUG_ASSERT(found, "No such name of scene");
 	return found;
 }
 

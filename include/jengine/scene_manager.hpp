@@ -27,6 +27,7 @@ using Scenes = std::vector<Scene*>;
 class SceneManager {
 
 	friend class Application;
+	friend class AssetManager;
 
 	// enum indicates the status of the current scene
 	enum SceneStatus {
@@ -84,7 +85,7 @@ private:
 	static SceneStatus status_;
 	static Scene* currentScene_, *nextScene_;
 	static sf::Window *window_;
-	static std::string	firstState_;
+	static std::string	firstScene_;
 
 	// Prevent to clone this class
 	SceneManager() = delete;

@@ -240,7 +240,11 @@ private:
         uint64_t r = 0;
         for (const char* p = begin; p != end; ++p) {
             RAPIDJSON_ASSERT(*p >= '0' && *p <= '9');
+
+#pragma warning( push )
+#pragma warning( disable : 26451)
             r = r * 10u + static_cast<unsigned>(*p - '0');
+#pragma warning( pop )
         }
         return r;
     }

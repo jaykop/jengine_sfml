@@ -130,7 +130,11 @@ struct DiyFp {
     void NormalizedBoundaries(DiyFp* minus, DiyFp* plus) const {
         DiyFp pl = DiyFp((f << 1) + 1, e - 1).NormalizeBoundary();
         DiyFp mi = (f == kDpHiddenBit) ? DiyFp((f << 2) - 1, e - 2) : DiyFp((f << 1) - 1, e - 1);
+
+#pragma warning( push )
+#pragma warning( disable : 26451)
         mi.f <<= mi.e - pl.e;
+#pragma warning( pop )
         mi.e = pl.e;
         *plus = pl;
         *minus = mi;
@@ -141,8 +145,12 @@ struct DiyFp {
             double d;
             uint64_t u64;
         }u;
+
+#pragma warning( push )
+#pragma warning( disable : 26451)
         const uint64_t be = (e == kDpDenormalExponent && (f & kDpHiddenBit) == 0) ? 0 : 
             static_cast<uint64_t>(e + kDpExponentBias);
+#pragma warning( pop )
         u.u64 = (f & kDpSignificandMask) | (be << kDpSignificandSize);
         return u.d;
     }
@@ -226,7 +234,11 @@ inline DiyFp GetCachedPowerByIndex(size_t index) {
 inline DiyFp GetCachedPower(int e, int* K) {
 
     //int k = static_cast<int>(ceil((-61 - e) * 0.30102999566398114)) + 374;
+
+#pragma warning( push )
+#pragma warning( disable : 26451)
     double dk = (-61 - e) * 0.30102999566398114 + 347;  // dk must be positive, so can do ceiling in positive
+#pragma warning( pop )
     int k = static_cast<int>(dk);
     if (dk - k > 0.0)
         k++;

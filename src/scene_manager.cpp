@@ -35,8 +35,10 @@ bool SceneManager::initialize(sf::Window* window)
 		
 		// Initialize input system
 		
+		// 
+
 		// bind current state's system
-		Scene::BindSystems();
+		Scene::bind_system();
 		
 		return true;
 	}
@@ -56,19 +58,19 @@ void SceneManager::update(sf::Event* event)
 	{
 		//TODO: HANDLE THIS LATER
 		// event handler loop
-		//while (window_->pollEvent(*event)) 
-		//{
-		//	if ((event->type == sf::Event::Closed) || // Close window: exit
-		//		(event->type == sf::Event::KeyPressed) && (event->key.code == sf::Keyboard::Escape)) { // Escape key: exit
-		//		
-		//		status_ = JE_STATE_QUIT;
-		//	}
-		//}
+		while (window_->pollEvent(*event)) 
+		{
+			if ((event->type == sf::Event::Closed) || // Close window: exit
+				(event->type == sf::Event::KeyPressed) && (event->key.code == sf::Keyboard::Escape)) { // Escape key: exit
+				
+				status_ = JE_STATE_QUIT;
+			}
+		}
 
 		elapsedTime = timer_.get_elapsed_time(); // get elapsed time
 		frameTime_ = elapsedTime - currentTime; // get frame time
-		timeStack += frameTime_;
-		frames_++;
+		timeStack += frameTime_; // stack timer
+		frames_++; // stack frames
 
 		// Manually block the rfame skipping
 		if (frameTime_ > 0.25f)
@@ -91,7 +93,7 @@ void SceneManager::update(sf::Event* event)
 
 void SceneManager::close()
 {
-	Scene::UnbindSystems();
+	Scene::unbind_system();
 }
 
 jeEnd

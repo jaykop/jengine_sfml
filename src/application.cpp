@@ -10,10 +10,12 @@ Contains the methods of application class
 */
 /******************************************************************************/
 
+#include <random.hpp>
 #include <application.hpp>
+#include <json_parser.hpp>
 #include <debug_console.hpp>
 #include <scene_manager.hpp>
-#include <json_parser.hpp>
+#include <asset_manager.hpp>
 
 jeBegin
 
@@ -21,22 +23,28 @@ jeBegin
 Application::AppData Application::data_;
 sf::Event Application::event_;
 sf::Window Application::window_;
-std::string Application::dataDirectory_;
 
 void Application::run()
 {
+	// Pop a console window
+	DEBUG_LEAK_CHECKS(-1);
+	DEBUG_CREATE_CONSOLE();
+
 	// If initialization succeeded, run the app
 	if (initialize()) {
 		
 		update();
 		close();
 	}
+
+	// Destroy the console window
+	DEBUG_DESTROY_CONSOLE();
 }
 
 bool Application::initialize()
 {
 	// Load app init data
-	JsonParser::read_file(dataDirectory_.c_str());
+	JsonParser::read_file(AssetManager::initDirectory_.c_str());
 
 	const rapidjson::Value& title = JsonParser::get_document()["Title"];
 	const rapidjson::Value& fullscreen = JsonParser::get_document()["Fullscreen"];
@@ -54,6 +62,12 @@ bool Application::initialize()
 		data_.width = width.GetInt();
 		data_.height = height.GetInt();
 	}
+
+	Random::seed();
+
+	// initialize components and assets
+	AssetManager::set_bulit_in_components();
+	AssetManager::load_assets();
 
 	// TODO: REDO THE FULLSCREEN PART
 	// Create window
@@ -76,7 +90,7 @@ void Application::update()
 		return;
 
 	// Update the window while it is open
-	while (window_.isOpen())
+	//while (window_.isOpen())
 		SceneManager::update(&event_); // update the scene
 	
 	// Close the scene manager
@@ -85,25 +99,8 @@ void Application::update()
 
 void Application::close()
 {
+	AssetManager::unload_assets();
 	window_.close();
-}
-
-void Application::open_console()
-{
-	// Pop a console window
-	DEBUG_LEAK_CHECKS(-1);
-	DEBUG_CREATE_CONSOLE();
-}
-
-void Application::close_console()
-{
-	// Destroy the console window
-	DEBUG_DESTROY_CONSOLE();
-}
-
-void Application::set_data_directory(const char* directory)
-{
-	dataDirectory_.assign(directory);
 }
 
 jeEnd

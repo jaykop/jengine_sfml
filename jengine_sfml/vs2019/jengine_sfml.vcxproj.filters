@@ -58,6 +58,9 @@
     <Filter Include="system\behavior">
       <UniqueIdentifier>{536bcc24-595a-45a8-99b4-3bfaf0eb4f88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utils\random">
+      <UniqueIdentifier>{07821819-b940-4f9b-8521-60e049329ee1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\jengine\application.hpp">
@@ -90,6 +93,12 @@
     </ClInclude>
     <ClInclude Include="..\..\include\jengine\json_parser.hpp">
       <Filter>utils\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\asset_manager.hpp">
+      <Filter>core\asset</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\random.hpp">
+      <Filter>utils\random</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +134,12 @@
     </ClCompile>
     <ClCompile Include="..\..\src\json_parser.cpp">
       <Filter>utils\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\asset_manager.cpp">
+      <Filter>core\asset</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\random.cpp">
+      <Filter>utils\random</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

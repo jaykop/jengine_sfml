@@ -20,6 +20,7 @@ class JsonParser {
 
 	friend class Scene;
 	friend class Application;
+	friend class AssetManager;
 
 private:
 
