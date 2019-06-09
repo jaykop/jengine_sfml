@@ -93,6 +93,7 @@ void SceneManager::update(sf::Event* event)
 
 void SceneManager::close()
 {
+	clear_scenes();
 	Scene::unbind_system();
 }
 

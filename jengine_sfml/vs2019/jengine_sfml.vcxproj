@@ -21,32 +21,43 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\application.cpp" />
     <ClCompile Include="..\..\src\asset_manager.cpp" />
-    <ClCompile Include="..\..\src\BehaviorSystem.cpp" />
+    <ClCompile Include="..\..\src\behavior_system.cpp" />
+    <ClCompile Include="..\..\src\component_manager.cpp" />
     <ClCompile Include="..\..\src\debug_console.cpp" />
+    <ClCompile Include="..\..\src\input_handler.cpp" />
     <ClCompile Include="..\..\src\json_parser.cpp" />
-    <ClCompile Include="..\..\src\PhysicsSystem.cpp" />
+    <ClCompile Include="..\..\src\object.cpp" />
+    <ClCompile Include="..\..\src\physics_system.cpp" />
     <ClCompile Include="..\..\src\random.cpp" />
     <ClCompile Include="..\..\src\scene.cpp" />
     <ClCompile Include="..\..\src\scene_controller.cpp" />
     <ClCompile Include="..\..\src\scene_manager.cpp" />
-    <ClCompile Include="..\..\src\SoundSystem.cpp" />
+    <ClCompile Include="..\..\src\sound_system.cpp" />
     <ClCompile Include="..\..\src\timer.cpp" />
-    <ClCompile Include="..\..\src\GraphicSystem.cpp" />
+    <ClCompile Include="..\..\src\graphic_system.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\jengine\application.hpp" />
     <ClInclude Include="..\..\include\jengine\asset_manager.hpp" />
-    <ClInclude Include="..\..\include\jengine\BehaviorSystem.hpp" />
+    <ClInclude Include="..\..\include\jengine\behavior_system.hpp" />
+    <ClInclude Include="..\..\include\jengine\component.hpp" />
+    <ClInclude Include="..\..\include\jengine\component_builder.hpp" />
+    <ClInclude Include="..\..\include\jengine\component_manager.hpp" />
     <ClInclude Include="..\..\include\jengine\debug_console.hpp" />
-    <ClInclude Include="..\..\include\jengine\GraphicSystem.hpp" />
+    <ClInclude Include="..\..\include\jengine\graphic_system.hpp" />
+    <ClInclude Include="..\..\include\jengine\input_handler.h" />
     <ClInclude Include="..\..\include\jengine\json_parser.hpp" />
     <ClInclude Include="..\..\include\jengine\macros.hpp" />
-    <ClInclude Include="..\..\include\jengine\PhysicsSystem.hpp" />
+    <ClInclude Include="..\..\include\jengine\object.hpp" />
+    <ClInclude Include="..\..\include\jengine\physics_system.hpp" />
     <ClInclude Include="..\..\include\jengine\random.hpp" />
     <ClInclude Include="..\..\include\jengine\scene.hpp" />
     <ClInclude Include="..\..\include\jengine\scene_manager.hpp" />
-    <ClInclude Include="..\..\include\jengine\SoundSystem.hpp" />
+    <ClInclude Include="..\..\include\jengine\sound_system.hpp" />
     <ClInclude Include="..\..\include\jengine\timer.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\include\jengine\component_manager.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

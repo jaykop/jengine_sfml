@@ -79,18 +79,6 @@
     <ClInclude Include="..\..\include\jengine\debug_console.hpp">
       <Filter>utils\debug_console</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\jengine\GraphicSystem.hpp">
-      <Filter>system\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\jengine\PhysicsSystem.hpp">
-      <Filter>system\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\jengine\SoundSystem.hpp">
-      <Filter>system\sound</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\jengine\BehaviorSystem.hpp">
-      <Filter>system\behavior</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\jengine\json_parser.hpp">
       <Filter>utils\json</Filter>
     </ClInclude>
@@ -99,6 +87,33 @@
     </ClInclude>
     <ClInclude Include="..\..\include\jengine\random.hpp">
       <Filter>utils\random</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\component.hpp">
+      <Filter>core\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\input_handler.h">
+      <Filter>core\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\object.hpp">
+      <Filter>core\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\graphic_system.hpp">
+      <Filter>system\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\behavior_system.hpp">
+      <Filter>system\behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\physics_system.hpp">
+      <Filter>system\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\sound_system.hpp">
+      <Filter>system\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\component_manager.hpp">
+      <Filter>core\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\component_builder.hpp">
+      <Filter>core\component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -117,18 +132,6 @@
     <ClCompile Include="..\..\src\debug_console.cpp">
       <Filter>utils\debug_console</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\GraphicSystem.cpp">
-      <Filter>system\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\PhysicsSystem.cpp">
-      <Filter>system\physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\SoundSystem.cpp">
-      <Filter>system\sound</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\BehaviorSystem.cpp">
-      <Filter>system\behavior</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\scene_controller.cpp">
       <Filter>core\scene</Filter>
     </ClCompile>
@@ -141,5 +144,31 @@
     <ClCompile Include="..\..\src\random.cpp">
       <Filter>utils\random</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\object.cpp">
+      <Filter>core\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\input_handler.cpp">
+      <Filter>core\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphic_system.cpp">
+      <Filter>system\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\behavior_system.cpp">
+      <Filter>system\behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\physics_system.cpp">
+      <Filter>system\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\sound_system.cpp">
+      <Filter>system\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\component_manager.cpp">
+      <Filter>core\component</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\include\jengine\component_manager.inl">
+      <Filter>core\component</Filter>
+    </None>
   </ItemGroup>
 </Project>
