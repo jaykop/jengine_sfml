@@ -26,6 +26,8 @@ using BuilderMap = std::map<std::string, ComponentBuilder*>;
 
 class ComponentManager {
 
+	friend class Object;
+
 private:
 
 	static Component* create_component(const char* componentName);

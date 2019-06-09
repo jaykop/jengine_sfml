@@ -6,7 +6,7 @@
 \date   2019/06/08(yy/mm/dd)
 
 \description
-Contains the definition of component class
+Contains the definition of Component class
 */
 /******************************************************************************/
 
@@ -23,11 +23,11 @@ class Component {
 public:
 
 	Object* get_owner() const { return owner_; }
-	virtual void Register() = 0;
+	virtual void add_to_system() = 0;
 
 protected:
 
-	virtual void Load(const rapidjson::Value& data) = 0;
+	virtual void load(const rapidjson::Value& data) = 0;
 
 	Component(Object* owner) : owner_(owner) {}
 	virtual ~Component() {}

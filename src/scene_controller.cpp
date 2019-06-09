@@ -85,10 +85,8 @@ void SceneManager::push_scene(const char* path, const char* stateName)
 	for (auto it = scenes_.begin();	it != scenes_.end(); ++it) {
 
 		// If there is already same one, assert
-		if (!strcmp((*it)->name_.c_str(), stateName)) {
-			sameOne = true;
-			DEBUG_ASSERT(0, "trying to add an identical scene!");
-		}
+		DEBUG_ASSERT(!strcmp((*it)->name_.c_str(), stateName), "Trying to add an identical scene!");
+		sameOne = true;
 	}
 
 	// prevent to have duplicated states
@@ -219,7 +217,7 @@ Scene* SceneManager::get_scene(const char* stateName)
 			return it;
 
 	// If there is no,
-	DEBUG_ASSERT(0, "No such name of scene");
+	DEBUG_ASSERT(false, "No such name of scene");
 	return nullptr;
 }
 
