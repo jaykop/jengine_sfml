@@ -91,9 +91,6 @@
     <ClInclude Include="..\..\include\jengine\component.hpp">
       <Filter>core\component</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\jengine\input_handler.h">
-      <Filter>core\input</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\jengine\object.hpp">
       <Filter>core\object</Filter>
     </ClInclude>
@@ -115,11 +112,11 @@
     <ClInclude Include="..\..\include\jengine\component_builder.hpp">
       <Filter>core\component</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\jengine\object_factory.hpp">
+    <ClInclude Include="..\..\include\jengine\object_manager.hpp">
       <Filter>core\object</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\jengine\object_container.hpp">
-      <Filter>core\object</Filter>
+    <ClInclude Include="..\..\include\jengine\input_handler.hpp">
+      <Filter>core\input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -171,19 +168,13 @@
     <ClCompile Include="..\..\src\component_manager.cpp">
       <Filter>core\component</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\object_container.cpp">
-      <Filter>core\object</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\object_factory.cpp">
+    <ClCompile Include="..\..\src\object_manager.cpp">
       <Filter>core\object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\jengine\component_manager.inl">
       <Filter>core\component</Filter>
-    </None>
-    <None Include="..\..\include\jengine\object_container.inl">
-      <Filter>core\object</Filter>
     </None>
     <None Include="..\..\include\jengine\object.inl">
       <Filter>core\object</Filter>

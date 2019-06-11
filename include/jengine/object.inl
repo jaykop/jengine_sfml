@@ -20,7 +20,7 @@ template <class ComponentType>
 void Object::add_component()
 {
 	static std::string typeName;
-	typeName = ComponentManager::key_to_type(componentName);
+	typeName = ComponentManager::key_to_type(typeid(ComponentType).name());
 	auto found = components_.find(typeName);
 
 	DEBUG_ASSERT(found == components_.end(), "Trying to add an existing component!");
@@ -55,7 +55,7 @@ template <class ComponentType>
 void Object::remove_component()
 {
 	static std::string typeName;
-	typeName = ComponentManager::key_to_type(componentName);
+	typeName = ComponentManager::key_to_type(typeid(ComponentType).name());
 	auto found = components_.find(typeName);
 
 	DEBUG_ASSERT(found != components_.end(), "No such name of component!");

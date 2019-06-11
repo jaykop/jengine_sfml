@@ -13,8 +13,7 @@ Contains the methods of Object class
 #include <object.hpp>
 #include <component.hpp>
 #include <debug_console.hpp>
-#include <object_factory.hpp>
-#include <object_container.hpp>
+#include <object_manager.hpp>
 #include <component_manager.hpp>
 
 jeBegin
@@ -22,7 +21,7 @@ jeBegin
 Object::Object(const char* name)
 	:name_(name), active_(true), parent_(nullptr)
 {
-	id_ = ObjectFactory::assign_id();
+	id_ = ObjectManager::assign_id();
 }
 
 Object::~Object()
@@ -35,6 +34,11 @@ void Object::register_components()
 {
 	for (auto component : components_)
 		component.second->add_to_system();
+}
+
+const char* Object::get_name()
+{
+	return name_.c_str();
 }
 
 void Object::add_component(const char* componentName)
@@ -91,9 +95,7 @@ void Object::add_child(Object* child)
 
 void Object::remove_child(const char* name)
 {
-	auto found = children_.find(name);
-	DEBUG_ASSERT(found != children_.end(), "No such child object!");
-	return found->second;
+	ObjectManager::remove_object(name);
 }
 
 bool Object::has_child(const char* name)
@@ -112,7 +114,7 @@ Object* Object::get_child(const char* name)
 void Object::clear_children()
 {
 	for (auto child : children_)
-		ObjectContainer::get_container()->RemoveObject(child.second);
+		ObjectManager::remove_object(child.second);
 
 	children_.clear();
 }

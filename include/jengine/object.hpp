@@ -16,13 +16,14 @@ Contains the definition of Object class
 
 jeBegin
 
+class Object;
 class Component;
 using Children = std::unordered_map<std::string, Object*>;
 using Components = std::unordered_map<std::string, Component*>;
 
 class Object {
 
-	friend class ObjectFactory;
+	friend class ObjectManager;
 
 public:
 	

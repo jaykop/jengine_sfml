@@ -11,6 +11,7 @@ Contains the methods of scene class
 /******************************************************************************/
 
 #include <scene.hpp>
+#include <object_manager.hpp>
 
 jeBegin
 
@@ -51,6 +52,8 @@ void Scene::load()
 
 void Scene::initialize()
 {
+	// bind the objects to the manager
+	ObjectManager::objects_ = &objects_;
 }
 
 void Scene::update(float dt)
@@ -59,15 +62,20 @@ void Scene::update(float dt)
 
 void Scene::close()
 {
+	// make sure current object map belongs to the current scene
+	ObjectManager::objects_ = &objects_;
+
+	// clear current object map
+	ObjectManager::clear_objects();
+
+	// initialize
+	ObjectManager::objects_ = nullptr;
 }
 
 void Scene::unload()
 {
 }
 
-void Scene::clear_container()
-{
-}
 
 const char* Scene::get_name() const
 {

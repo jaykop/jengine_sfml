@@ -13,14 +13,16 @@ Contains the definition of Scene class
 #pragma once
 #include <string>
 #include <macros.hpp>
+#include <unordered_map>
 
 jeBegin
 
-class ObjectContainer;
+class Object;
 class SoundSystem;
 class PhysicsSystme;
 class GraphicsSystem;
 class BehaviorSystem;
+using ObjectMap = std::unordered_map<std::string, Object*>;
 
 // Generic scene class
 class Scene {
@@ -46,14 +48,12 @@ private:
 	void close();
 	void unload();
 
-	void clear_container();
-
 	Scene* lastScene_ = nullptr; // pointer to the last scene (before this scene)
 	std::string	name_, // scene name
 		directory_; // directory of this scene
 
 	// container
-	ObjectContainer* objContainer_ = nullptr;
+	ObjectMap objects_;
 
 	// Systems 
 	static SoundSystem* soundSystem_;

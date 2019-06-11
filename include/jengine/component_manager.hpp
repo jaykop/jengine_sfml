@@ -11,9 +11,9 @@ Contains the definition of ComponentManager class
 /******************************************************************************/
 
 #pragma once
-#include <map>
 #include <string>
 #include <macros.hpp>
+#include <unordered_map>
 
 jeBegin
 
@@ -21,8 +21,8 @@ class Object;
 class Component;
 class ComponentBuilder;
 
-using Directory = std::map<std::string, std::string>;
-using BuilderMap = std::map<std::string, ComponentBuilder*>;
+using Directory = std::unordered_map<std::string, std::string>;
+using BuilderMap = std::unordered_map<std::string, ComponentBuilder*>;
 
 class ComponentManager {
 
