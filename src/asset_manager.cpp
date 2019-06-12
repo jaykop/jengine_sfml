@@ -13,7 +13,7 @@ Contains the methods of asset_manager class
 #include <thread>
 #include <json_parser.hpp>
 #include <asset_manager.hpp>
-#include <debug_console.hpp>
+#include <debug_tool.hpp>
 #include <scene_manager.hpp>
 
 jeBegin

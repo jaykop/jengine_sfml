@@ -13,7 +13,7 @@ Contains the methods of JsonParser class
 //#include "Component.h"
 //#include "Object.h"
 //#include "ObjectFactory.h"
-#include <debug_console.hpp>
+#include <debug_tool.hpp>
 #include <json_parser.hpp>
 #include <stringbuffer.h>
 #include <istreamwrapper.h>

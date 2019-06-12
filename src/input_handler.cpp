@@ -10,39 +10,38 @@ Contains the methods of InputHandler class
 */
 /******************************************************************************/
 
-#include <Window.hpp>
 #include <input_handler.hpp>
-#include <debug_console.hpp>
+#include <debug_tool.hpp>
 
 jeBegin
 
-std::vector<KEY> InputHandler::key_que;
-std::unordered_map<KEY, bool> InputHandler::key_map;
-bool InputHandler::mouse_down = false, InputHandler::key_down = false;
+std::vector<KEY> InputHandler::keyQue;
+KeyMap InputHandler::keyMap, InputHandler::triggerMap;
+bool InputHandler::mouseDown = false, InputHandler::keyDown = false;
 
 bool InputHandler::any_input_down()
 {
-	return mouse_down || key_down;
+	return mouseDown || keyDown;
 }
 
 bool InputHandler::any_key_down()
 {
-	return key_down;
+	return keyDown;
 }
 
 bool InputHandler::any_mouse_down()
 {
-	return mouse_down;
+	return mouseDown;
 }
 
 bool InputHandler::key_pressed(KEY key)
 {
-	return key_map[key];
+	return keyMap[key];
 }
 
 bool InputHandler::key_triggered(KEY key)
 {
-	return key_map[key];
+	return triggerMap[key];
 }
 
 KEY InputHandler::key_translator(sf::Event& event)
@@ -51,7 +50,7 @@ KEY InputHandler::key_translator(sf::Event& event)
 	switch (event.key.code) {
 
 		// alphabets
-	case sf::Keyboard::A :
+	case sf::Keyboard::A:
 		return KEY::A;
 	case sf::Keyboard::B:
 		return KEY::B;
@@ -126,7 +125,7 @@ KEY InputHandler::key_translator(sf::Event& event)
 	case sf::Keyboard::Num9:
 		return KEY::NUM_9;
 
-
+		// function keys
 	case sf::Keyboard::Escape:
 		return KEY::ESC;
 	case sf::Keyboard::LControl:
@@ -186,31 +185,44 @@ KEY InputHandler::key_translator(sf::Event& event)
 
 void InputHandler::initialize()
 {
-	// ;
+	// initialize values in the map
+	for (int key = KEY::NONE; key <= KEY::END; key++) {
+		
+		// generate an instance
+		KeyMap::value_type pair { KEY(key), false };
+		
+		// insert to the maps
+		keyMap.insert(pair);
+		triggerMap.insert(pair);
+	}
 }
 
 void InputHandler::update(sf::Event& event)
 {
-	key_que.push_back(key_translator(event));
+	//if (event.type == sf::Event::KeyReleased)
+		//;
 
-	for (auto key : key_que) {
-		key_map[key] = true;
-	}
+	// add to the que
+	keyQue.push_back(key_translator(event));
+
+	for (auto key : keyQue)
+		keyMap[key] = true;
 }
 
 // this function is called just before the PollFvent function
 void InputHandler::refresh()
 {
-	for (auto key : key_que)
-		key_map[key] = false;
+	// set default values
+	for (auto key : keyQue)
+		keyMap[key] = false;
 
-	key_que.clear();
+	keyQue.clear();
 }
 
 void InputHandler::close()
 {
-	key_map.clear();
-	key_que.clear();
+	keyMap.clear();
+	keyQue.clear();
 }
 
 jeEnd

@@ -12,7 +12,7 @@ Contains the methods of random class
 
 #include <chrono>
 #include <random.hpp>
-#include <debug_console.hpp>
+#include <debug_tool.hpp>
 
 jeBegin
 

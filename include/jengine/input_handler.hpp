@@ -11,10 +11,13 @@ Contains the definition of InputHandler class
 /******************************************************************************/
 #pragma once
 #include <vector>
+#include <Window.hpp>
 #include <key_map.hpp>
 #include <unordered_map>
 
 jeBegin
+
+using KeyMap = std::unordered_map<KEY, bool>;
 
 class InputHandler {
 
@@ -40,9 +43,9 @@ private:
 	static void refresh();
 	static void close();
 
-	static bool mouse_down, key_down;
-	static std::vector<KEY>	key_que;
-	static std::unordered_map<KEY, bool> key_map;
+	static bool mouseDown, keyDown;
+	static std::vector<KEY>	keyQue;
+	static KeyMap keyMap, triggerMap;
 
 	InputHandler() = delete;
 	~InputHandler() = delete;

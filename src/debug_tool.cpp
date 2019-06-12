@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-\file   debug_console.cpp
+\file   debug_tool.cpp
 \author Jeong Juyong
 \par    email: jaykop.jy\@gmail.com
 \date   2019/06/02(yy/mm/dd)
@@ -12,7 +12,7 @@ Contains the methods of the debug console
 
 #include <string>
 #include <sstream>
-#include <debug_console.hpp>
+#include <debug_tool.hpp>
 
 namespace DebugTools
 {

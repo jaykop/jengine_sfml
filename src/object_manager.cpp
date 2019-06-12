@@ -11,7 +11,7 @@ Contains the methods of ObjectManager class
 /******************************************************************************/
 
 #include <object.hpp>
-#include <debug_console.hpp>
+#include <debug_tool.hpp>
 #include <object_manager.hpp>
 
 jeBegin

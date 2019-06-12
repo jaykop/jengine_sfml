@@ -13,7 +13,7 @@ Contains the methods of application class
 #include <random.hpp>
 #include <application.hpp>
 #include <json_parser.hpp>
-#include <debug_console.hpp>
+#include <debug_tool.hpp>
 #include <scene_manager.hpp>
 #include <asset_manager.hpp>
 #include <input_handler.hpp>

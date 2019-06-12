@@ -15,13 +15,10 @@ Contains the methods of SceneManager class
 #include <scene_manager.hpp>
 #include <input_handler.hpp>
 
-// TODO
-#include <application.hpp>
-
 jeBegin
 
 // constant value
-const float SECOND = 1.f;
+const float SECOND = 1.f, MAX_FRAME_TIME = 0.25f;
 
 // Initialize the static variables
 Timer SceneManager::timer_;
@@ -58,33 +55,23 @@ void SceneManager::update(sf::Event* event)
 	timer_.start();
 	change_scene();
 
-	while (status_ == JE_STATE_NONE) // state updating loop
+	while (window_->pollEvent(*event) != 0
+		|| status_ == JE_STATE_NONE) // state updating loop
 	{
+		//TODO
 		// refresh the code
-		InputHandler::refresh();
-
-		// event handler loop
-		while (window_->pollEvent(*event)) 
-		{
-			InputHandler::update(*event);
-
-			// TODO TEMPORARY CODE
-			if ((event->type == sf::Event::Closed) || // Close window: exit
-				(event->type == sf::Event::KeyPressed) && (event->key.code == sf::Keyboard::Escape)) { // Escape key: exit
-				
-				status_ = JE_STATE_QUIT;
-				Application::quit();
-			}
-		}
-
+		//InputHandler::refresh();
+		InputHandler::update(*event);
+		
 		elapsedTime = timer_.get_elapsed_time(); // get elapsed time
 		frameTime_ = elapsedTime - currentTime; // get frame time
-		timeStack += frameTime_; // stack timer
-		frames_++; // stack frames
 
 		// Manually block the rfame skipping
-		if (frameTime_ > 0.25f)
-			frameTime_ = 0.25f;
+		if (frameTime_ > MAX_FRAME_TIME)
+			frameTime_ = MAX_FRAME_TIME;
+
+		timeStack += frameTime_; // stack timer
+		frames_++; // stack frames
 
 		// Update the scene and systems
 		if (timeStack >= SECOND) {
@@ -94,10 +81,11 @@ void SceneManager::update(sf::Event* event)
 
 			frames_ = 0;
 			timeStack = 0.f;
-		}
 
-		// Update the window
-		window_->display();
+			// Update the window
+			window_->display();
+
+		}
 	}
 }
 

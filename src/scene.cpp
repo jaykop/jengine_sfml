@@ -13,6 +13,11 @@ Contains the methods of scene class
 #include <scene.hpp>
 #include <object_manager.hpp>
 
+// TODO
+#include <iostream>
+#include <application.hpp>
+#include <input_handler.hpp>
+
 jeBegin
 
 SoundSystem* Scene::soundSystem_ = nullptr;
@@ -58,6 +63,15 @@ void Scene::initialize()
 
 void Scene::update(float dt)
 {
+	//TODO
+	//TEST CODE
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		std::cout << "A\n";
+
+	if (InputHandler::key_pressed(KEY::ESC))
+		std::cout << "B\n";
+
+	// Application::quit();
 }
 
 void Scene::close()

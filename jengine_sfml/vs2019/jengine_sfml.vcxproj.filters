@@ -13,9 +13,6 @@
     <Filter Include="utils\timer">
       <UniqueIdentifier>{a76df4cc-5371-4967-857e-74b60263a5bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utils\debug_console">
-      <UniqueIdentifier>{13cc8818-501d-4576-8d73-ddeacae338c1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="core">
       <UniqueIdentifier>{16bae76c-3a8c-4511-8307-522827bab14c}</UniqueIdentifier>
     </Filter>
@@ -61,6 +58,9 @@
     <Filter Include="utils\random">
       <UniqueIdentifier>{07821819-b940-4f9b-8521-60e049329ee1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utils\debug_tool">
+      <UniqueIdentifier>{13cc8818-501d-4576-8d73-ddeacae338c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\jengine\application.hpp">
@@ -75,9 +75,6 @@
     </ClInclude>
     <ClInclude Include="..\..\include\jengine\timer.hpp">
       <Filter>utils\timer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\jengine\debug_console.hpp">
-      <Filter>utils\debug_console</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\jengine\json_parser.hpp">
       <Filter>utils\json</Filter>
@@ -121,6 +118,9 @@
     <ClInclude Include="..\..\include\jengine\key_map.hpp">
       <Filter>core\input</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\jengine\debug_tool.hpp">
+      <Filter>utils\debug_tool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\application.cpp">
@@ -134,9 +134,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\timer.cpp">
       <Filter>utils\timer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\debug_console.cpp">
-      <Filter>utils\debug_console</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\scene_controller.cpp">
       <Filter>core\scene</Filter>
@@ -173,6 +170,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\object_manager.cpp">
       <Filter>core\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\debug_tool.cpp">
+      <Filter>utils\debug_tool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
