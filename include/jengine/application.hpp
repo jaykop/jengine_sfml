@@ -33,6 +33,7 @@ public:
 	};
 
 	static void run();
+	static void quit() { run_ = false; }
 
 	static AppData get_appdata();
 	static void set_screensize(int w, int h);
@@ -48,6 +49,7 @@ private:
 	static AppData data_;		
 	static sf::Event event_;
 	static sf::Window window_;
+	static bool run_;
 
 	// Prevent to clone this class
 	Application() = delete;

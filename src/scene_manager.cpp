@@ -13,6 +13,10 @@ Contains the methods of SceneManager class
 #include <timer.hpp>
 #include <scene.hpp>
 #include <scene_manager.hpp>
+#include <input_handler.hpp>
+
+// TODO
+#include <application.hpp>
 
 jeBegin
 
@@ -56,14 +60,20 @@ void SceneManager::update(sf::Event* event)
 
 	while (status_ == JE_STATE_NONE) // state updating loop
 	{
-		//TODO: HANDLE THIS LATER
+		// refresh the code
+		InputHandler::refresh();
+
 		// event handler loop
 		while (window_->pollEvent(*event)) 
 		{
+			InputHandler::update(*event);
+
+			// TODO TEMPORARY CODE
 			if ((event->type == sf::Event::Closed) || // Close window: exit
 				(event->type == sf::Event::KeyPressed) && (event->key.code == sf::Keyboard::Escape)) { // Escape key: exit
 				
 				status_ = JE_STATE_QUIT;
+				Application::quit();
 			}
 		}
 

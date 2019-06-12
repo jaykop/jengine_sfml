@@ -16,34 +16,37 @@ Contains the methods of application class
 #include <debug_console.hpp>
 #include <scene_manager.hpp>
 #include <asset_manager.hpp>
+#include <input_handler.hpp>
 
 jeBegin
 
-// Initialize the static variables
+
+// initialize the static variables
+bool  Application::run_ = true;
 Application::AppData Application::data_;
 sf::Event Application::event_;
 sf::Window Application::window_;
 
 void Application::run()
 {
-	// Pop a console window
+	// pop a console window
 	DEBUG_LEAK_CHECKS(-1);
 	DEBUG_CREATE_CONSOLE();
 
-	// If initialization succeeded, run the app
+	// if initialization succeeded, run the app
 	if (initialize()) {
 		
 		update();
 		close();
 	}
 
-	// Destroy the console window
+	// destroy the console window
 	DEBUG_DESTROY_CONSOLE();
 }
 
 bool Application::initialize()
 {
-	// Load app init data
+	// load app init data
 	JsonParser::read_file(AssetManager::initDirectory_.c_str());
 
 	const rapidjson::Value& title = JsonParser::get_document()["Title"];
@@ -69,6 +72,8 @@ bool Application::initialize()
 	AssetManager::set_bulit_in_components();
 	AssetManager::load_assets();
 
+	InputHandler::initialize();
+
 	// TODO: REDO THE FULLSCREEN PART
 	// Create window
 	/*if (data_.isFullscreen)
@@ -82,6 +87,7 @@ bool Application::initialize()
 	return true;
 }
 
+// the process handling scene manager is handled here
 void Application::update()
 {
 	// If the intiailization does not have done properly,
@@ -89,16 +95,16 @@ void Application::update()
 	if (!SceneManager::initialize(&window_))
 		return;
 
-	// Update the window while it is open
-	//while (window_.isOpen())
+	// update the window 
+	while (run_)
 		SceneManager::update(&event_); // update the scene
-	
-	// Close the scene manager
-	SceneManager::close();
+
+	SceneManager::close(); // close the scene manager
 }
 
 void Application::close()
 {
+	InputHandler::close(); // close the input handler
 	AssetManager::unload_assets();
 	window_.close();
 }

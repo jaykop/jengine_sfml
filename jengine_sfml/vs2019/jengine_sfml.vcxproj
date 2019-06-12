@@ -48,6 +48,7 @@
     <ClInclude Include="..\..\include\jengine\graphic_system.hpp" />
     <ClInclude Include="..\..\include\jengine\input_handler.hpp" />
     <ClInclude Include="..\..\include\jengine\json_parser.hpp" />
+    <ClInclude Include="..\..\include\jengine\key_map.hpp" />
     <ClInclude Include="..\..\include\jengine\macros.hpp" />
     <ClInclude Include="..\..\include\jengine\object.hpp" />
     <ClInclude Include="..\..\include\jengine\object_manager.hpp" />

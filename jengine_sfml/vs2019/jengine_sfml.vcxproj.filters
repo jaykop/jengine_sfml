@@ -118,6 +118,9 @@
     <ClInclude Include="..\..\include\jengine\input_handler.hpp">
       <Filter>core\input</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\jengine\key_map.hpp">
+      <Filter>core\input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\application.cpp">
