@@ -65,13 +65,15 @@ void Scene::update(float dt)
 {
 	//TODO
 	//TEST CODE
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+
+	if (InputHandler::key_pressed(KEY::A))
 		std::cout << "A\n";
 
-	if (InputHandler::key_pressed(KEY::ESC))
+	if (InputHandler::key_triggered(KEY::B))
 		std::cout << "B\n";
 
-	// Application::quit();
+	if (InputHandler::key_pressed(KEY::ESC))
+		Application::quit();
 }
 
 void Scene::close()

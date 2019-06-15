@@ -55,13 +55,10 @@ void SceneManager::update(sf::Event* event)
 	timer_.start();
 	change_scene();
 
-	while (window_->pollEvent(*event) != 0
-		|| status_ == JE_STATE_NONE) // state updating loop
+	while (status_ == JE_STATE_NONE) // state updating loop
 	{
-		//TODO
-		// refresh the code
-		//InputHandler::refresh();
-		InputHandler::update(*event);
+		while (window_->pollEvent(*event))
+			InputHandler::update(*event);
 		
 		elapsedTime = timer_.get_elapsed_time(); // get elapsed time
 		frameTime_ = elapsedTime - currentTime; // get frame time
@@ -78,7 +75,7 @@ void SceneManager::update(sf::Event* event)
 
 			currentTime = elapsedTime; // refresh the current time
 			currentScene_->update(frameTime_); // update the current scene
-
+			
 			frames_ = 0;
 			timeStack = 0.f;
 

@@ -33,7 +33,7 @@ public:
 	};
 
 	static void run();
-	static void quit() { run_ = false; }
+	static void quit();
 
 	static AppData get_appdata();
 	static void set_screensize(int w, int h);

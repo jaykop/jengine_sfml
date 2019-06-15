@@ -10,7 +10,6 @@ Contains the definition of InputHandler class
 */
 /******************************************************************************/
 #pragma once
-#include <vector>
 #include <Window.hpp>
 #include <key_map.hpp>
 #include <unordered_map>
@@ -40,11 +39,9 @@ private:
 	static KEY key_translator(sf::Event& event);
 	static void initialize();
 	static void update(sf::Event& event);
-	static void refresh();
 	static void close();
 
 	static bool mouseDown, keyDown;
-	static std::vector<KEY>	keyQue;
 	static KeyMap keyMap, triggerMap;
 
 	InputHandler() = delete;

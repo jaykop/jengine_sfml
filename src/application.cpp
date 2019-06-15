@@ -27,6 +27,12 @@ Application::AppData Application::data_;
 sf::Event Application::event_;
 sf::Window Application::window_;
 
+void Application::quit() 
+{
+	run_ = false;
+	SceneManager::status_ = SceneManager::SceneStatus::JE_STATE_QUIT;
+}
+
 void Application::run()
 {
 	// pop a console window

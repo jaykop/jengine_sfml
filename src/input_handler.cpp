@@ -15,7 +15,6 @@ Contains the methods of InputHandler class
 
 jeBegin
 
-std::vector<KEY> InputHandler::keyQue;
 KeyMap InputHandler::keyMap, InputHandler::triggerMap;
 bool InputHandler::mouseDown = false, InputHandler::keyDown = false;
 
@@ -41,7 +40,8 @@ bool InputHandler::key_pressed(KEY key)
 
 bool InputHandler::key_triggered(KEY key)
 {
-	return triggerMap[key];
+	if (keyMap[key]) return !(triggerMap[key]++);
+	return false;
 }
 
 KEY InputHandler::key_translator(sf::Event& event)
@@ -199,30 +199,28 @@ void InputHandler::initialize()
 
 void InputHandler::update(sf::Event& event)
 {
-	//if (event.type == sf::Event::KeyReleased)
-		//;
+	switch (event.type) {
+	
+	case sf::Event::EventType::KeyReleased:
+	{
+		auto key = key_translator(event);
+		triggerMap[key] = keyMap[key] = false;
+		keyDown = false;
 
-	// add to the que
-	keyQue.push_back(key_translator(event));
+		break;
+	}
+	case sf::Event::EventType::KeyPressed:
+	{
+		keyMap[key_translator(event)] = true;
+		keyDown = true;
 
-	for (auto key : keyQue)
-		keyMap[key] = true;
+		break;
+	}
+	}
 }
-
-// this function is called just before the PollFvent function
-void InputHandler::refresh()
-{
-	// set default values
-	for (auto key : keyQue)
-		keyMap[key] = false;
-
-	keyQue.clear();
-}
-
 void InputHandler::close()
 {
 	keyMap.clear();
-	keyQue.clear();
 }
 
 jeEnd
