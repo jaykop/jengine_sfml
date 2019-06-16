@@ -64,13 +64,25 @@ void Scene::initialize()
 void Scene::update(float dt)
 {
 	//TODO
-	//TEST CODE
+	//INPUT TEST CODE
 
 	if (InputHandler::key_pressed(KEY::A))
 		std::cout << "A\n";
 
 	if (InputHandler::key_triggered(KEY::B))
 		std::cout << "B\n";
+
+	if (InputHandler::key_pressed(KEY::MOUSE_LEFT))
+		std::cout << "MOUSE_LEFT\n";
+
+	if (InputHandler::key_triggered(KEY::MOUSE_RIGHT))
+		std::cout << "MOUSE_RIGHT\n";
+
+	if (InputHandler::get_mouse_wheel_status() == InputHandler::MouseWheel::UP)
+		std::cout << "Mouse Wheel Up\n";
+
+	else if (InputHandler::get_mouse_wheel_status() == InputHandler::MouseWheel::DOWN)
+		std::cout << "Mouse Wheel Down\n";
 
 	if (InputHandler::key_pressed(KEY::ESC))
 		Application::quit();

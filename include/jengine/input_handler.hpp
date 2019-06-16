@@ -25,6 +25,8 @@ class InputHandler {
 
 public:
 
+	enum MouseWheel { NONE, UP, DOWN } ;
+
 	static bool any_key_down(); // check both mouse or key
 	static bool any_mouse_down();
 	static bool any_input_down();
@@ -32,17 +34,24 @@ public:
 	static bool key_pressed(KEY key);
 	static bool key_triggered(KEY key);
 
+	static InputHandler::MouseWheel get_mouse_wheel_status();
+	static float wheelSensitivity_;
+
 	// mouse position
 	
 private:
 
 	static KEY key_translator(sf::Event& event);
+	static KEY mouse_translator(sf::Event& event);
+	static void mouse_refresh(sf::Event& event);
+
 	static void initialize();
 	static void update(sf::Event& event);
 	static void close();
 
 	static bool mouseDown, keyDown;
 	static KeyMap keyMap, triggerMap;
+	static MouseWheel mouseWheel_;
 
 	InputHandler() = delete;
 	~InputHandler() = delete;

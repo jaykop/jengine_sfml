@@ -55,10 +55,10 @@ void SceneManager::update(sf::Event* event)
 	timer_.start();
 	change_scene();
 
-	while (status_ == JE_STATE_NONE) // state updating loop
+	while (window_->pollEvent(*event)
+		|| status_ == JE_STATE_NONE) // state updating loop
 	{
-		while (window_->pollEvent(*event))
-			InputHandler::update(*event);
+		InputHandler::update(*event);
 		
 		elapsedTime = timer_.get_elapsed_time(); // get elapsed time
 		frameTime_ = elapsedTime - currentTime; // get frame time
@@ -75,7 +75,8 @@ void SceneManager::update(sf::Event* event)
 
 			currentTime = elapsedTime; // refresh the current time
 			currentScene_->update(frameTime_); // update the current scene
-			
+			InputHandler::mouse_refresh(*event); // refresh mouse wheel status
+
 			frames_ = 0;
 			timeStack = 0.f;
 

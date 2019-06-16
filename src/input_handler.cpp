@@ -10,12 +10,16 @@ Contains the methods of InputHandler class
 */
 /******************************************************************************/
 
-#include <input_handler.hpp>
 #include <debug_tool.hpp>
+#include <input_handler.hpp>
+
+#include <iostream>
 
 jeBegin
 
+float InputHandler::wheelSensitivity_ = 0.f;
 KeyMap InputHandler::keyMap, InputHandler::triggerMap;
+InputHandler::MouseWheel InputHandler::mouseWheel_ = NONE;
 bool InputHandler::mouseDown = false, InputHandler::keyDown = false;
 
 bool InputHandler::any_input_down()
@@ -70,7 +74,7 @@ KEY InputHandler::key_translator(sf::Event& event)
 		return KEY::I;
 	case sf::Keyboard::J:
 		return KEY::J;
-	case sf::Keyboard::K :
+	case sf::Keyboard::K:
 		return KEY::K;
 	case sf::Keyboard::L:
 		return KEY::L;
@@ -160,9 +164,15 @@ KEY InputHandler::key_translator(sf::Event& event)
 		return KEY::DOWN;
 	}
 
+	// None of key pressed
+	return KEY::NONE;
+}
+
+KEY InputHandler::mouse_translator(sf::Event& event)
+{
 	// mouse
 	switch (event.mouseButton.button) {
-	
+
 	case sf::Mouse::Button::Left:
 		return KEY::MOUSE_LEFT;
 	case sf::Mouse::Button::Right:
@@ -209,6 +219,7 @@ void InputHandler::update(sf::Event& event)
 
 		break;
 	}
+
 	case sf::Event::EventType::KeyPressed:
 	{
 		keyMap[key_translator(event)] = true;
@@ -216,11 +227,52 @@ void InputHandler::update(sf::Event& event)
 
 		break;
 	}
+	
+	case sf::Event::EventType::MouseButtonReleased:
+	{
+		auto key = mouse_translator(event);
+		triggerMap[key] = keyMap[key] = false;
+		mouseDown = false;
+
+		break;
+	}
+
+	case sf::Event::EventType::MouseButtonPressed:
+	{
+		keyMap[mouse_translator(event)] = true;
+		mouseDown = true;
+
+		break;
+	}
+
+	case sf::Event::EventType::MouseWheelScrolled:
+	{
+		if (event.mouseWheelScroll.delta > wheelSensitivity_)
+			mouseWheel_ = UP;
+
+		else if (event.mouseWheelScroll.delta < -wheelSensitivity_)
+			mouseWheel_ = DOWN;
+
+		break;
+	}
 	}
 }
+
 void InputHandler::close()
 {
 	keyMap.clear();
+}
+
+void InputHandler::mouse_refresh(sf::Event& event)
+{
+	// set default wheel level
+	mouseWheel_ = NONE;
+	event.mouseWheelScroll.delta = 0.f;
+}
+
+InputHandler::MouseWheel InputHandler::get_mouse_wheel_status()
+{
+	return mouseWheel_;
 }
 
 jeEnd
