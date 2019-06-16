@@ -12,6 +12,10 @@ Contains the methods of scene class
 
 #include <scene.hpp>
 #include <object_manager.hpp>
+#include <sound_system.hpp>
+#include <physics_system.hpp>
+#include <graphic_system.hpp>
+#include <behavior_system.hpp>
 
 // TODO
 #include <iostream>
@@ -20,25 +24,20 @@ Contains the methods of scene class
 
 jeBegin
 
-SoundSystem* Scene::soundSystem_ = nullptr;
-PhysicsSystme* Scene::physicsSystem_ = nullptr;
-GraphicsSystem* Scene::graphicSystem_ = nullptr;
-BehaviorSystem* Scene::behaviorSystem_ = nullptr;
-
 void Scene::bind_system()
 {
-	//soundSystem_ = ;
-	//physicsSystem_ = ;
-	//graphicSystem_ = ;
-	//behaviorSystem_ = ;
+	GraphicSystem::initialize();
+	PhysicsSystem::initialize();
+	SoundSystem::initialize();
+	BehaviorSystem::initialize();
 }
 
 void Scene::unbind_system()
 {
-	//soundSystem_;
-	//physicsSystem_;
-	//graphicSystem_;
-	//behaviorSystem_;
+	BehaviorSystem::close();
+	SoundSystem::close();
+	PhysicsSystem::close();
+	GraphicSystem::close();
 }
 
 Scene::Scene(const char* name)
@@ -63,9 +62,14 @@ void Scene::initialize()
 
 void Scene::update(float dt)
 {
+	// update all systems
+	BehaviorSystem::update();
+	SoundSystem::update();
+	PhysicsSystem::update();
+	GraphicSystem::update();
+
 	//TODO
 	//INPUT TEST CODE
-
 	if (InputHandler::key_pressed(KEY::A))
 		std::cout << "A\n";
 
@@ -103,7 +107,6 @@ void Scene::close()
 void Scene::unload()
 {
 }
-
 
 const char* Scene::get_name() const
 {

@@ -13,10 +13,10 @@ Contains the definition of SceneManager class
 #pragma once
 
 // Main scene manager class
+#include <Graphics/RenderWindow.hpp>
 #include <vector>
 #include <string>
 #include <timer.hpp>
-#include <Window.hpp>
 
 jeBegin
 
@@ -64,7 +64,7 @@ public:
 
 private:
 
-	static bool initialize(sf::Window* window);
+	static bool initialize(sf::RenderWindow* window);
 	static void update(sf::Event* event);
 	static void close();
 
@@ -84,7 +84,7 @@ private:
 	static Scenes scenes_;
 	static SceneStatus status_;
 	static Scene* currentScene_, *nextScene_;
-	static sf::Window *window_;
+	static sf::RenderWindow *window_;
 	static std::string	firstScene_;
 
 	// Prevent to clone this class

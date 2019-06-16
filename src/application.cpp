@@ -10,8 +10,8 @@ Contains the methods of application class
 */
 /******************************************************************************/
 
-#include <random.hpp>
 #include <application.hpp>
+#include <random.hpp>
 #include <json_parser.hpp>
 #include <debug_tool.hpp>
 #include <scene_manager.hpp>
@@ -20,12 +20,11 @@ Contains the methods of application class
 
 jeBegin
 
-
 // initialize the static variables
-bool  Application::run_ = true;
-Application::AppData Application::data_;
+bool Application::run_ = true;
 sf::Event Application::event_;
-sf::Window Application::window_;
+Application::AppData Application::data_;
+sf::RenderWindow Application::window_;
 
 void Application::quit() 
 {
@@ -74,10 +73,14 @@ bool Application::initialize()
 
 	Random::seed();
 
+	// instantiate a context to load Opengl resources
+	sf::Context context;
+
 	// initialize components and assets
 	AssetManager::set_bulit_in_components();
 	AssetManager::load_assets();
 
+	// initialize key map
 	InputHandler::initialize();
 
 	// TODO: REDO THE FULLSCREEN PART
@@ -85,10 +88,27 @@ bool Application::initialize()
 	/*if (data_.isFullscreen)
 		window_.create(sf::VideoMode(data_.width, data_.height), data_.title, sf::Style::Fullscreen);
 	else */
-	window_.create(sf::VideoMode(data_.width, data_.height), data_.title.c_str());
+
+	// set opengl window settings
+	sf::ContextSettings settings;
+	settings.depthBits = 24;
+	settings.stencilBits = 8;
+	settings.antialiasingLevel = 4;
+	settings.majorVersion = 3;
+	settings.minorVersion = 3;
+
+	// create a window
+	window_.create(
+		sf::VideoMode(data_.width, data_.height), 
+		data_.title.c_str(), 
+		sf::Style::Default, 
+		settings);
 
 	window_.setFramerateLimit(60);	// limit 60 frames
 	window_.setVerticalSyncEnabled(true); // Activate vSync
+
+	// deactivate the OpenGL context
+	window_.setActive(false);
 
 	return true;
 }
@@ -101,9 +121,16 @@ void Application::update()
 	if (!SceneManager::initialize(&window_))
 		return;
 
+	// launch the rednering thread
+	sf::Thread thread(&rendering_thread);
+	thread.launch();
+
 	// update the window 
-	while (run_)
+	while (run_) {
+
 		SceneManager::update(&event_); // update the scene
+		window_.display(); // update the window
+	}
 
 	SceneManager::close(); // close the scene manager
 }
@@ -113,6 +140,22 @@ void Application::close()
 	InputHandler::close(); // close the input handler
 	AssetManager::unload_assets();
 	window_.close();
+}
+
+void Application::rendering_thread()
+{
+	// activate the window's context
+	window_.setActive(true);
+
+	while (run_) {
+		
+		//TODO
+		// Draw...
+
+		// end the current framee --- this is a rendering function
+		// this requires the context activated
+		window_.display();
+	}
 }
 
 jeEnd

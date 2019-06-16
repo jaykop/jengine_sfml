@@ -121,6 +121,9 @@
     <ClInclude Include="..\..\include\jengine\debug_tool.hpp">
       <Filter>utils\debug_tool</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\jengine\gl_manager.hpp">
+      <Filter>core\opengl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\application.cpp">
@@ -173,6 +176,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\debug_tool.cpp">
       <Filter>utils\debug_tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gl_manager.cpp">
+      <Filter>core\opengl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -11,8 +11,8 @@ Contains the definition of application class
 /******************************************************************************/
 
 #pragma once
+#include <Graphics/RenderWindow.hpp>
 #include <string>
-#include <Window.hpp>
 #include <macros.hpp>
 
 jeBegin
@@ -46,9 +46,11 @@ private:
 	static void update();
 	static void close();
 
+	static void rendering_thread();
+
 	static AppData data_;		
 	static sf::Event event_;
-	static sf::Window window_;
+	static sf::RenderWindow window_;
 	static bool run_;
 
 	// Prevent to clone this class

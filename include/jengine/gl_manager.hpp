@@ -1,41 +1,39 @@
 /******************************************************************************/
 /*!
-\file   graphic_system.hpp
+\file   gl_manager.hpp
 \author Jeong Juyong
 \par    email: jaykop.jy\@gmail.com
 \date   2019/06/15(yy/mm/dd)
 
 \description
-Contains the definition of GraphicSystem class
+Contains the definition of GLManager class
 */
 /******************************************************************************/
-
 #pragma once
+
+#include <OpenGL.hpp>
 #include <macros.hpp>
 
 jeBegin
 
-class GraphicSystem {
-
-	friend class Scene;
-
+class GLManager
+{
 public:
-
-
-
-private:
 
 	static void initialize();
 	static void update();
 	static void close();
 
-	GraphicSystem() = delete;
-	~GraphicSystem() = delete;
-	GraphicSystem(GraphicSystem&&) = delete;
-	GraphicSystem(const GraphicSystem&) = delete;
-	GraphicSystem& operator=(GraphicSystem&&) = delete;
-	GraphicSystem& operator=(const GraphicSystem&) = delete;
+private:
 
+	GLuint a;
+
+	GLManager() = delete;
+	~GLManager() = delete;
+	GLManager(GLManager&&) = delete;
+	GLManager(const GLManager&) = delete;
+	GLManager& operator= (GLManager&&) = delete;
+	GLManager& operator= (const GLManager&) = delete;
 };
 
 jeEnd

@@ -24,6 +24,7 @@
     <ClCompile Include="..\..\src\behavior_system.cpp" />
     <ClCompile Include="..\..\src\component_manager.cpp" />
     <ClCompile Include="..\..\src\debug_tool.cpp" />
+    <ClCompile Include="..\..\src\gl_manager.cpp" />
     <ClCompile Include="..\..\src\input_handler.cpp" />
     <ClCompile Include="..\..\src\json_parser.cpp" />
     <ClCompile Include="..\..\src\object.cpp" />
@@ -45,6 +46,7 @@
     <ClInclude Include="..\..\include\jengine\component_builder.hpp" />
     <ClInclude Include="..\..\include\jengine\component_manager.hpp" />
     <ClInclude Include="..\..\include\jengine\debug_tool.hpp" />
+    <ClInclude Include="..\..\include\jengine\gl_manager.hpp" />
     <ClInclude Include="..\..\include\jengine\graphic_system.hpp" />
     <ClInclude Include="..\..\include\jengine\input_handler.hpp" />
     <ClInclude Include="..\..\include\jengine\json_parser.hpp" />
@@ -140,7 +142,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,7 +154,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -166,7 +168,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -182,7 +184,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -18,10 +18,6 @@ Contains the definition of Scene class
 jeBegin
 
 class Object;
-class SoundSystem;
-class PhysicsSystme;
-class GraphicsSystem;
-class BehaviorSystem;
 using ObjectMap = std::unordered_map<std::string, Object*>;
 
 // Generic scene class
@@ -54,12 +50,6 @@ private:
 
 	// container
 	ObjectMap objects_;
-
-	// Systems 
-	static SoundSystem* soundSystem_;
-	static PhysicsSystme* physicsSystem_;
-	static GraphicsSystem* graphicSystem_;
-	static BehaviorSystem* behaviorSystem_;
 
 	// Prevent to clone this class
 	Scene() = delete;

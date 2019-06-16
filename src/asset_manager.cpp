@@ -10,11 +10,11 @@ Contains the methods of asset_manager class
 */
 /******************************************************************************/
 
+#include <scene_manager.hpp>
+#include <asset_manager.hpp>
 #include <thread>
 #include <json_parser.hpp>
-#include <asset_manager.hpp>
 #include <debug_tool.hpp>
-#include <scene_manager.hpp>
 
 jeBegin
 
