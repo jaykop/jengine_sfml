@@ -124,6 +124,39 @@
     <ClInclude Include="..\..\include\jengine\gl_manager.hpp">
       <Filter>core\opengl</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\jengine\emitter.hpp">
+      <Filter>system\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\sprite.hpp">
+      <Filter>system\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\text.hpp">
+      <Filter>system\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\emitter.cpp">
+      <Filter>system\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\vec4.hpp">
+      <Filter>utils\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\vec3.hpp">
+      <Filter>utils\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\vec2.hpp">
+      <Filter>utils\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\math.hpp">
+      <Filter>utils\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\mat4.hpp">
+      <Filter>utils\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\mat3.hpp">
+      <Filter>utils\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\shader.hpp">
+      <Filter>core\opengl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\application.cpp">
@@ -178,6 +211,27 @@
       <Filter>utils\debug_tool</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\gl_manager.cpp">
+      <Filter>core\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\text.cpp">
+      <Filter>system\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\vec2.cpp">
+      <Filter>utils\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\vec3.cpp">
+      <Filter>utils\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\vec4.cpp">
+      <Filter>utils\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\mat3.cpp">
+      <Filter>utils\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\mat4.cpp">
+      <Filter>utils\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shader.cpp">
       <Filter>core\opengl</Filter>
     </ClCompile>
   </ItemGroup>

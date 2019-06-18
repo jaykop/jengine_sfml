@@ -10,21 +10,19 @@ Contains the methods of GLManager class
 */
 /******************************************************************************/
 
-#include <Window.hpp>
 #include <gl_manager.hpp>
+#include <debug_tool.hpp>
 
 jeBegin
 
 void GLManager::initialize()
 {
-	sf::ContextSettings settings;
-	settings.depthBits = 24;
-	settings.stencilBits = 8;
-	settings.antialiasingLevel = 4;
-	settings.majorVersion = 3;
-	settings.minorVersion = 3;
+	// force GLEW to use a modern OpenGL method
+	glewExperimental = GL_TRUE;
 
-	sf::Window window(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, settings);
+	//Before using shader, initialize glew.
+	DEBUG_ASSERT(glewInit() == GLEW_OK, "Failed to initialize GLEW");
+
 }
 
 void GLManager::update()
@@ -34,5 +32,17 @@ void GLManager::update()
 void GLManager::close()
 {
 }
+
+void GLManager::initialize_shaders()
+{
+
+}
+//
+//sf::ContextSettings GLManager::get_context_settings()
+//{
+//
+//
+//	return settings;
+//}
 
 jeEnd

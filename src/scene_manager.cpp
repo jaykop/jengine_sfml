@@ -80,9 +80,48 @@ void SceneManager::update(sf::Event* event)
 			frames_ = 0;
 			timeStack = 0.f;
 
-			// window_->resetGLStates();
-			// window_->draw();
+			window_->display(); // update the window
 		}
+	}
+
+	switch (status_) {
+
+		// Pause process
+	case JE_STATE_PAUSE:
+		/*SYSTEM::Pause();*/
+		break;
+
+		// The case to quit app
+	case JE_STATE_QUIT:				
+		//while (pCurrent_) {
+		//	State* pLast = pCurrent_->pLastStage_;
+		//	pCurrent_->Close();
+		//	pCurrent_->Unload();
+		//	pCurrent_ = pLast;
+		//}
+		break;
+
+		// The case to resume to last state
+	case JE_STATE_RESUME:				
+		/*pCurrent_->Close();
+		pCurrent_->Unload();
+		SYSTEM::Resume();*/
+		break;
+
+		// The case to restart the current state
+		// The case to change to next state
+		// The case to resume and change
+	case JE_STATE_RESTART:				
+	case JE_STATE_CHANGE:				
+	case JE_STATE_RESUME_AND_CHANGE:	
+		//pCurrent_->Close();
+		//pCurrent_->Unload();
+		break;
+
+		// Keep updaring - this should not happen
+	case JE_STATE_NONE:
+	default:
+		break;
 	}
 }
 

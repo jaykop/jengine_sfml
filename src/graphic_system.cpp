@@ -10,7 +10,7 @@ Contains the methods of GraphicSystem class
 */
 /******************************************************************************/
 
-//#include <OpenGL.hpp>
+#include <OpenGL.hpp>
 #include <graphic_system.hpp>
 
 jeBegin
@@ -21,12 +21,13 @@ void GraphicSystem::initialize()
 
 void GraphicSystem::update()
 {
-	//glClearColor(1.f, 1.f, 1.f, 1.f);
-	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClearColor(1.f, 1.f, 1.f, 1.f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void GraphicSystem::close()
 {
+
 }
 
 jeEnd

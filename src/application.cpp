@@ -10,6 +10,7 @@ Contains the methods of application class
 */
 /******************************************************************************/
 
+#include <gl_manager.hpp>
 #include <application.hpp>
 #include <random.hpp>
 #include <json_parser.hpp>
@@ -75,6 +76,7 @@ bool Application::initialize()
 
 	// instantiate a context to load Opengl resources
 	sf::Context context;
+	GLManager::initialize();
 
 	// initialize components and assets
 	AssetManager::set_bulit_in_components();
@@ -89,7 +91,6 @@ bool Application::initialize()
 		window_.create(sf::VideoMode(data_.width, data_.height), data_.title, sf::Style::Fullscreen);
 	else */
 
-	// set opengl window settings
 	sf::ContextSettings settings;
 	settings.depthBits = 24;
 	settings.stencilBits = 8;
@@ -122,15 +123,12 @@ void Application::update()
 		return;
 
 	// launch the rednering thread
-	sf::Thread thread(&rendering_thread);
-	thread.launch();
+	// sf::Thread thread(&rendering_thread);
+	// thread.launch();
 
 	// update the window 
-	while (run_) {
-
+	while (run_) 
 		SceneManager::update(&event_); // update the scene
-		window_.display(); // update the window
-	}
 
 	SceneManager::close(); // close the scene manager
 }
@@ -154,7 +152,7 @@ void Application::rendering_thread()
 
 		// end the current framee --- this is a rendering function
 		// this requires the context activated
-		window_.display();
+		// window_.display();
 	}
 }
 

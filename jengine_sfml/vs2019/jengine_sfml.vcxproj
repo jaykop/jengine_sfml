@@ -27,6 +27,8 @@
     <ClCompile Include="..\..\src\gl_manager.cpp" />
     <ClCompile Include="..\..\src\input_handler.cpp" />
     <ClCompile Include="..\..\src\json_parser.cpp" />
+    <ClCompile Include="..\..\src\mat3.cpp" />
+    <ClCompile Include="..\..\src\mat4.cpp" />
     <ClCompile Include="..\..\src\object.cpp" />
     <ClCompile Include="..\..\src\object_manager.cpp" />
     <ClCompile Include="..\..\src\physics_system.cpp" />
@@ -34,9 +36,14 @@
     <ClCompile Include="..\..\src\scene.cpp" />
     <ClCompile Include="..\..\src\scene_controller.cpp" />
     <ClCompile Include="..\..\src\scene_manager.cpp" />
+    <ClCompile Include="..\..\src\shader.cpp" />
     <ClCompile Include="..\..\src\sound_system.cpp" />
+    <ClCompile Include="..\..\src\text.cpp" />
     <ClCompile Include="..\..\src\timer.cpp" />
     <ClCompile Include="..\..\src\graphic_system.cpp" />
+    <ClCompile Include="..\..\src\vec2.cpp" />
+    <ClCompile Include="..\..\src\vec3.cpp" />
+    <ClCompile Include="..\..\src\vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\jengine\application.hpp" />
@@ -46,20 +53,31 @@
     <ClInclude Include="..\..\include\jengine\component_builder.hpp" />
     <ClInclude Include="..\..\include\jengine\component_manager.hpp" />
     <ClInclude Include="..\..\include\jengine\debug_tool.hpp" />
+    <ClInclude Include="..\..\include\jengine\emitter.hpp" />
     <ClInclude Include="..\..\include\jengine\gl_manager.hpp" />
     <ClInclude Include="..\..\include\jengine\graphic_system.hpp" />
     <ClInclude Include="..\..\include\jengine\input_handler.hpp" />
     <ClInclude Include="..\..\include\jengine\json_parser.hpp" />
     <ClInclude Include="..\..\include\jengine\key_map.hpp" />
     <ClInclude Include="..\..\include\jengine\macros.hpp" />
+    <ClInclude Include="..\..\include\jengine\mat3.hpp" />
+    <ClInclude Include="..\..\include\jengine\mat4.hpp" />
+    <ClInclude Include="..\..\include\jengine\math.hpp" />
     <ClInclude Include="..\..\include\jengine\object.hpp" />
     <ClInclude Include="..\..\include\jengine\object_manager.hpp" />
     <ClInclude Include="..\..\include\jengine\physics_system.hpp" />
     <ClInclude Include="..\..\include\jengine\random.hpp" />
     <ClInclude Include="..\..\include\jengine\scene.hpp" />
     <ClInclude Include="..\..\include\jengine\scene_manager.hpp" />
+    <ClInclude Include="..\..\include\jengine\shader.hpp" />
     <ClInclude Include="..\..\include\jengine\sound_system.hpp" />
+    <ClInclude Include="..\..\include\jengine\sprite.hpp" />
+    <ClInclude Include="..\..\include\jengine\text.hpp" />
     <ClInclude Include="..\..\include\jengine\timer.hpp" />
+    <ClInclude Include="..\..\include\jengine\vec2.hpp" />
+    <ClInclude Include="..\..\include\jengine\vec3.hpp" />
+    <ClInclude Include="..\..\include\jengine\vec4.hpp" />
+    <ClInclude Include="..\..\src\emitter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\include\jengine\component_manager.inl" />
@@ -142,7 +160,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;$(SolutionDir)..\..\include\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -154,7 +172,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;$(SolutionDir)..\..\include\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -168,7 +186,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;$(SolutionDir)..\..\include\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -184,7 +202,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\jengine;$(SolutionDir)..\..\include\SFML;$(SolutionDir)..\..\include\;$(SolutionDir)..\..\include\rapidjson;$(SolutionDir)..\..\include\gl;$(SolutionDir)..\..\include\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
