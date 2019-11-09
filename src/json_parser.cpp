@@ -28,7 +28,12 @@ void JsonParser::read_file(const char* directory)
 {
 	std::ifstream read(directory);
 	rapidjson::IStreamWrapper toInputStream(read);
+#if defined(_DEBUG)
 	DEBUG_ASSERT(!document_.ParseStream(toInputStream).HasParseError(), "Json file has a problem");
+#else
+	document_.ParseStream(toInputStream);
+#endif // DEBUG
+
 }
 
 const rapidjson::Document& JsonParser::get_document() { return document_; }

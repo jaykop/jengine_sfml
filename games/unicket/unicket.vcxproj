@@ -100,7 +100,8 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "..\..\lib\sfml\$(Platform)\*.dll" "$(TargetDir)"
-xcopy /y /d "..\..\lib\GL\$(Platform)\*.dll" "$(TargetDir)"</Command>
+xcopy /y /d "..\..\lib\GL\$(Platform)\*.dll" "$(TargetDir)"
+xcopy /y /s /i "$(ProjectDir)\resource" "$(TargetDir)\resource"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -118,7 +119,8 @@ xcopy /y /d "..\..\lib\GL\$(Platform)\*.dll" "$(TargetDir)"</Command>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "..\..\lib\sfml\$(Platform)\*.dll" "$(TargetDir)"
-xcopy /y /d "..\..\lib\GL\$(Platform)\*.dll" "$(TargetDir)"</Command>
+xcopy /y /d "..\..\lib\GL\$(Platform)\*.dll" "$(TargetDir)"
+xcopy /y /s /i "$(ProjectDir)\resource" "$(TargetDir)\resource"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -140,7 +142,8 @@ xcopy /y /d "..\..\lib\GL\$(Platform)\*.dll" "$(TargetDir)"</Command>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "..\..\lib\sfml\$(Platform)\*.dll" "$(TargetDir)"
-xcopy /y /d "..\..\lib\GL\$(Platform)\*.dll" "$(TargetDir)"</Command>
+xcopy /y /d "..\..\lib\GL\$(Platform)\*.dll" "$(TargetDir)"
+xcopy /y /s /i "$(ProjectDir)\resource" "$(TargetDir)\resource"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -162,7 +165,8 @@ xcopy /y /d "..\..\lib\GL\$(Platform)\*.dll" "$(TargetDir)"</Command>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y /d "..\..\lib\sfml\$(Platform)\*.dll" "$(TargetDir)"
-xcopy /y /d "..\..\lib\GL\$(Platform)\*.dll" "$(TargetDir)"</Command>
+xcopy /y /d "..\..\lib\GL\$(Platform)\*.dll" "$(TargetDir)"
+xcopy /y /s /i "$(ProjectDir)\resource" "$(TargetDir)\resource"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
