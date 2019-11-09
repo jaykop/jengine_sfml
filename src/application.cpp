@@ -25,7 +25,7 @@ jeBegin
 bool Application::run_ = true;
 sf::Event Application::event_;
 Application::AppData Application::data_;
-sf::RenderWindow Application::window_;
+sf::Window Application::window_;
 
 void Application::quit() 
 {
@@ -94,9 +94,10 @@ bool Application::initialize()
 	sf::ContextSettings settings;
 	settings.depthBits = 24;
 	settings.stencilBits = 8;
-	settings.antialiasingLevel = 4;
-	settings.majorVersion = 3;
+	//settings.antialiasingLevel = 4;
+	settings.majorVersion = 4;
 	settings.minorVersion = 3;
+	settings.attributeFlags = sf::ContextSettings::Core;
 
 	// create a window
 	window_.create(
@@ -108,8 +109,8 @@ bool Application::initialize()
 	window_.setFramerateLimit(60);	// limit 60 frames
 	window_.setVerticalSyncEnabled(true); // Activate vSync
 
-	// deactivate the OpenGL context
-	window_.setActive(false);
+	// activate the OpenGL context
+	window_.setActive(true);
 
 	return true;
 }
@@ -135,6 +136,9 @@ void Application::update()
 
 void Application::close()
 {
+	// deactivate the OpenGL context
+	window_.setActive(false);
+
 	InputHandler::close(); // close the input handler
 	AssetManager::unload_assets();
 	window_.close();

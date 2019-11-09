@@ -48,7 +48,7 @@ bool InputHandler::key_triggered(KEY key)
 	return false;
 }
 
-KEY InputHandler::key_translator(sf::Event& event)
+KEY InputHandler::key_translator(const sf::Event& event)
 {
 	// keyboards
 	switch (event.key.code) {
@@ -168,7 +168,7 @@ KEY InputHandler::key_translator(sf::Event& event)
 	return KEY::NONE;
 }
 
-KEY InputHandler::mouse_translator(sf::Event& event)
+KEY InputHandler::mouse_translator(const sf::Event& event)
 {
 	// mouse
 	switch (event.mouseButton.button) {
@@ -207,7 +207,7 @@ void InputHandler::initialize()
 	}
 }
 
-void InputHandler::update(sf::Event& event)
+void InputHandler::update(const sf::Event& event)
 {
 	switch (event.type) {
 	

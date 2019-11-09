@@ -50,7 +50,7 @@ private:
 
 	static AppData data_;		
 	static sf::Event event_;
-	static sf::RenderWindow window_;
+	static sf::Window window_;
 	static bool run_;
 
 	// Prevent to clone this class

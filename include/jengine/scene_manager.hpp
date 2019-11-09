@@ -64,7 +64,7 @@ public:
 
 private:
 
-	static bool initialize(sf::RenderWindow* window);
+	static bool initialize(sf::Window* window);
 	static void update(sf::Event* event);
 	static void close();
 
@@ -84,7 +84,7 @@ private:
 	static Scenes scenes_;
 	static SceneStatus status_;
 	static Scene* currentScene_, *nextScene_;
-	static sf::RenderWindow *window_;
+	static sf::Window *window_;
 	static std::string	firstScene_;
 
 	// Prevent to clone this class

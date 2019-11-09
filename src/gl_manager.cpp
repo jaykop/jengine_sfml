@@ -25,8 +25,13 @@ void GLManager::initialize()
 
 }
 
-void GLManager::update()
+void GLManager::update(const sf::Event& event)
 {
+	if (event.type == sf::Event::Resized)
+		glViewport(0, 0, event.size.width, event.size.height);
+	else if (event.type == sf::Event::Closed) {
+		// TODO
+	}
 }
 
 void GLManager::close()

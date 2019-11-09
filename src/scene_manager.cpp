@@ -14,6 +14,7 @@ Contains the methods of SceneManager class
 #include <timer.hpp>
 #include <scene.hpp>
 #include <input_handler.hpp>
+#include <gl_manager.hpp>
 
 jeBegin
 
@@ -24,11 +25,11 @@ const float SECOND = 1.f, MAX_FRAME_TIME = 0.25f;
 Timer SceneManager::timer_;
 int SceneManager::frames_ = 0;
 float SceneManager::frameTime_ = 0.f;
-sf::RenderWindow* SceneManager::window_ = nullptr;
+sf::Window* SceneManager::window_ = nullptr;
 Scene* SceneManager::currentScene_ = nullptr;
 SceneManager::SceneStatus SceneManager::status_ = SceneManager::SceneStatus::JE_STATE_NONE;
 
-bool SceneManager::initialize(sf::RenderWindow* window)
+bool SceneManager::initialize(sf::Window* window)
 {
 	if (window) {
 		
@@ -59,7 +60,8 @@ void SceneManager::update(sf::Event* event)
 		|| status_ == JE_STATE_NONE) // state updating loop
 	{
 		InputHandler::update(*event);
-		
+		GLManager::update(*event);
+
 		elapsedTime = timer_.get_elapsed_time(); // get elapsed time
 		frameTime_ = elapsedTime - currentTime; // get frame time
 

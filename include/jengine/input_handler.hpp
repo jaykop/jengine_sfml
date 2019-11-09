@@ -41,12 +41,12 @@ public:
 	
 private:
 
-	static KEY key_translator(sf::Event& event);
-	static KEY mouse_translator(sf::Event& event);
+	static KEY key_translator(const sf::Event& event);
+	static KEY mouse_translator(const sf::Event& event);
 	static void mouse_refresh(sf::Event& event);
 
 	static void initialize();
-	static void update(sf::Event& event);
+	static void update(const sf::Event& event);
 	static void close();
 
 	static bool mouseDown, keyDown;
