@@ -1,15 +1,28 @@
 #include <glew.h>
 #include <shader.hpp>
 #include <vector>
+#include <fstream>
 
 jeBegin
+
+std::vector<const char*> Shader::vsDirectory_;
+std::vector<const char*> Shader::fsDirectory_;
 
 Shader::Shader() : programId_(0), vertexId_(0),
 	fragmentId_(0), geometryId_(0),
 	infoLogLength_(0), result_(GL_FALSE) {}
 
-void Shader::create_shader(std::string& shaderContents, Type type)
+void Shader::create_shader(const char* file_path, Type type)
 {
+	std::string shaderCode;
+	std::ifstream shaderStream(file_path, std::ios::in);
+	if (shaderStream.is_open()) {
+		std::string Line = "";
+		while (getline(shaderStream, Line))
+			shaderCode += "\n" + Line;
+		shaderStream.close();
+	}
+
 	// Create the shader
 	GLuint* pShader = nullptr;
 
@@ -29,7 +42,7 @@ void Shader::create_shader(std::string& shaderContents, Type type)
 		break;
 	}
 
-	char const* SourcePointer = shaderContents.c_str();
+	char const* SourcePointer = shaderCode.c_str();
 	glShaderSource(*pShader, 1, &SourcePointer, nullptr);
 	glCompileShader(*pShader);
 
@@ -44,7 +57,7 @@ void Shader::create_shader(std::string& shaderContents, Type type)
 	}
 }
 
-void Shader::combine_shader()
+void Shader::combine_shaders()
 {
 	programId_ = glCreateProgram();
 

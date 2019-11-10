@@ -60,6 +60,7 @@ private:
 	static std::string initDirectory_, assetDirectory_,
 		stateDirectory_, archeDirectory_;
 
+	static void load_shaders();
 	static void load_font(const char* path, const char* audioKey, unsigned size,
 		unsigned long start, unsigned long end);
 	static void load_characters(Font* pFont, float& newLineLevel, unsigned long start, unsigned long end);

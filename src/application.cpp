@@ -75,7 +75,9 @@ bool Application::initialize()
 	Random::seed();
 
 	// instantiate a context to load Opengl resources
+	// and load shaders
 	sf::Context context;
+	AssetManager::load_shaders();
 	GLManager::initialize();
 
 	// initialize components and assets
@@ -141,6 +143,7 @@ void Application::close()
 
 	InputHandler::close(); // close the input handler
 	AssetManager::unload_assets();
+	GLManager::close();
 	window_.close();
 }
 

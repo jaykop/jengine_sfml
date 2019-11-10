@@ -16,10 +16,17 @@ Contains the definition of Shader class
 #include <mat4.hpp>
 #include <vec4.hpp>
 #include <string>
+#include <vector>
 
 jeBegin
 
 class Shader {
+
+	friend class GLManager;
+	friend class AssetManager;
+
+	static std::vector<const char*> vsDirectory_;
+	static std::vector<const char*> fsDirectory_;
 
 private:
 
@@ -29,8 +36,8 @@ private:
 	friend class GraphicSystem;
 	friend class AssetManager;
 
-	void create_shader(std::string& shaderContents, Type type);
-	void combine_shader();
+	void create_shader(const char* file_path, Type type);
+	void combine_shaders();
 
 	void set_int(const char* name, int number);
 	void set_bool(const char* name, bool toggle);

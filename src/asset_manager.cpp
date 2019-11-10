@@ -15,6 +15,8 @@ Contains the methods of asset_manager class
 #include <thread>
 #include <json_parser.hpp>
 #include <debug_tool.hpp>
+#include <gl_manager.hpp>
+#include <shader.hpp>
 
 jeBegin
 
@@ -24,6 +26,19 @@ AssetManager::stateDirectory_, AssetManager::archeDirectory_;
 bool AssetManager::set_bulit_in_components()
 {
 	return false;
+}
+
+void AssetManager::load_shaders() {
+
+	// raed shader directory
+	JsonParser::read_file("../../shader/shaders.json");
+	const rapidjson::Value& vs = JsonParser::get_document()["vertex"];
+	const rapidjson::Value& fs = JsonParser::get_document()["fragment"];
+	const unsigned shader_size = vs.Size();
+	for (rapidjson::SizeType i = 0; i < shader_size; ++i) {
+		Shader::vsDirectory_.push_back(vs[i]["Directory"].GetString());
+		Shader::fsDirectory_.push_back(fs[i]["Directory"].GetString());
+	}
 }
 
 void AssetManager::load_assets()
@@ -98,3 +113,4 @@ void AssetManager::set_scene_directory(const char* dir) { stateDirectory_.assign
 void AssetManager::set_archetype_directory(const char* dir) { archeDirectory_.assign(dir); }
 
 jeEnd
+
