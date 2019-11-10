@@ -24,35 +24,35 @@ void Shader::create_shader(const char* file_path, Type type)
 	}
 
 	// Create the shader
-	GLuint* pShader = nullptr;
+	GLuint* shader = nullptr;
 
 	switch (type)
 	{
 	case JE_VERTEX:
 		vertexId_ = glCreateShader(GL_VERTEX_SHADER);
-		pShader = &vertexId_;
+		shader = &vertexId_;
 		break;
 	case JE_PIXEL:
 		fragmentId_ = glCreateShader(GL_FRAGMENT_SHADER);
-		pShader = &fragmentId_;
+		shader = &fragmentId_;
 		break;
 	case JE_GEOMETRY:
 		geometryId_ = glCreateShader(GL_GEOMETRY_SHADER);
-		pShader = &geometryId_;
+		shader = &geometryId_;
 		break;
 	}
 
 	char const* SourcePointer = shaderCode.c_str();
-	glShaderSource(*pShader, 1, &SourcePointer, nullptr);
-	glCompileShader(*pShader);
+	glShaderSource(*shader, 1, &SourcePointer, nullptr);
+	glCompileShader(*shader);
 
 	// Check shader
-	glGetShaderiv(*pShader, GL_COMPILE_STATUS, &result_);
-	glGetShaderiv(*pShader, GL_INFO_LOG_LENGTH, &infoLogLength_);
+	glGetShaderiv(*shader, GL_COMPILE_STATUS, &result_);
+	glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &infoLogLength_);
 
 	if (infoLogLength_ > 0) {
-		std::vector<char> ShaderErrorMessage(infoLogLength_ + 1);
-		glGetShaderInfoLog(*pShader, infoLogLength_, nullptr, &ShaderErrorMessage[0]);
+		std::vector<char> ShaderErrorMessage(infoLogLength_ + int(1));
+		glGetShaderInfoLog(*shader, infoLogLength_, nullptr, &ShaderErrorMessage[0]);
 		jeDebugPrint("!Shader - %4s\n", &ShaderErrorMessage[0]);
 	}
 }

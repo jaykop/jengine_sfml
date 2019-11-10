@@ -14,6 +14,7 @@ Contains the definition of Scene class
 #include <string>
 #include <macros.hpp>
 #include <unordered_map>
+#include <vec4.hpp>
 
 jeBegin
 
@@ -50,6 +51,9 @@ private:
 
 	// container
 	ObjectMap objects_;
+
+	vec4 background, screen;
+
 
 	// Prevent to clone this class
 	Scene() = delete;

@@ -157,6 +157,15 @@
     <ClInclude Include="..\..\include\jengine\shader.hpp">
       <Filter>core\opengl</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\jengine\graphics.hpp">
+      <Filter>system\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\transform.hpp">
+      <Filter>system\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\camera.hpp">
+      <Filter>system\graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\application.cpp">
@@ -233,6 +242,15 @@
     </ClCompile>
     <ClCompile Include="..\..\src\shader.cpp">
       <Filter>core\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\graphics.cpp">
+      <Filter>system\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\transform.cpp">
+      <Filter>system\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\camera.cpp">
+      <Filter>system\graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

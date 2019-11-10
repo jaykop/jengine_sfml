@@ -33,9 +33,12 @@ struct vec3
 	// ctor / dtor
 	vec3(void);
 	vec3(float x, float y, float z);
+	vec3(const vec3& v3);
+
 
 	// public methods
 	void set(float x, float y, float z);
+	void set(const vec3& v3);
 	void set_zero(void);
 	void set_one(void);
 	float length(void) const;

@@ -147,20 +147,21 @@ void Application::close()
 	window_.close();
 }
 
-void Application::rendering_thread()
-{
-	// activate the window's context
-	window_.setActive(true);
-
-	while (run_) {
-		
-		//TODO
-		// Draw...
-
-		// end the current framee --- this is a rendering function
-		// this requires the context activated
-		// window_.display();
-	}
-}
+//todo
+//void Application::rendering_thread()
+//{
+//	// activate the window's context
+//	window_.setActive(true);
+//
+//	while (run_) {
+//		
+//		//TODO
+//		// Draw...
+//
+//		// end the current framee --- this is a rendering function
+//		// this requires the context activated
+//		// window_.display();
+//	}
+//}
 
 jeEnd

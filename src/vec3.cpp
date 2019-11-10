@@ -9,14 +9,25 @@ const vec3 vec3::one = vec3(1.f, 1.f, 1.f);
 
 vec3::vec3(void)
 	:x(0.f), y(0.f), z(0.f)
-{
-}
+{}
 
 vec3::vec3(float _x, float _y, float _z)
 	: x(_x)
 	, y(_y)
 	, z(_z)
+{}
+
+vec3::vec3(const vec3& v3)
+	: x(v3.x)
+	, y(v3.y)
+	, z(v3.z)
+{}
+
+void vec3::set(const vec3& v3)
 {
+	x = v3.x;
+	y = v3.y;
+	z = v3.z;
 }
 
 void vec3::set(float _x, float _y, float _z)

@@ -22,9 +22,11 @@
     <ClCompile Include="..\..\src\application.cpp" />
     <ClCompile Include="..\..\src\asset_manager.cpp" />
     <ClCompile Include="..\..\src\behavior_system.cpp" />
+    <ClCompile Include="..\..\src\camera.cpp" />
     <ClCompile Include="..\..\src\component_manager.cpp" />
     <ClCompile Include="..\..\src\debug_tool.cpp" />
     <ClCompile Include="..\..\src\gl_manager.cpp" />
+    <ClCompile Include="..\..\src\graphics.cpp" />
     <ClCompile Include="..\..\src\input_handler.cpp" />
     <ClCompile Include="..\..\src\json_parser.cpp" />
     <ClCompile Include="..\..\src\mat3.cpp" />
@@ -41,6 +43,7 @@
     <ClCompile Include="..\..\src\text.cpp" />
     <ClCompile Include="..\..\src\timer.cpp" />
     <ClCompile Include="..\..\src\graphic_system.cpp" />
+    <ClCompile Include="..\..\src\transform.cpp" />
     <ClCompile Include="..\..\src\vec2.cpp" />
     <ClCompile Include="..\..\src\vec3.cpp" />
     <ClCompile Include="..\..\src\vec4.cpp" />
@@ -49,12 +52,14 @@
     <ClInclude Include="..\..\include\jengine\application.hpp" />
     <ClInclude Include="..\..\include\jengine\asset_manager.hpp" />
     <ClInclude Include="..\..\include\jengine\behavior_system.hpp" />
+    <ClInclude Include="..\..\include\jengine\camera.hpp" />
     <ClInclude Include="..\..\include\jengine\component.hpp" />
     <ClInclude Include="..\..\include\jengine\component_builder.hpp" />
     <ClInclude Include="..\..\include\jengine\component_manager.hpp" />
     <ClInclude Include="..\..\include\jengine\debug_tool.hpp" />
     <ClInclude Include="..\..\include\jengine\emitter.hpp" />
     <ClInclude Include="..\..\include\jengine\gl_manager.hpp" />
+    <ClInclude Include="..\..\include\jengine\graphics.hpp" />
     <ClInclude Include="..\..\include\jengine\graphic_system.hpp" />
     <ClInclude Include="..\..\include\jengine\input_handler.hpp" />
     <ClInclude Include="..\..\include\jengine\json_parser.hpp" />
@@ -74,6 +79,7 @@
     <ClInclude Include="..\..\include\jengine\sprite.hpp" />
     <ClInclude Include="..\..\include\jengine\text.hpp" />
     <ClInclude Include="..\..\include\jengine\timer.hpp" />
+    <ClInclude Include="..\..\include\jengine\transform.hpp" />
     <ClInclude Include="..\..\include\jengine\vec2.hpp" />
     <ClInclude Include="..\..\include\jengine\vec3.hpp" />
     <ClInclude Include="..\..\include\jengine\vec4.hpp" />
