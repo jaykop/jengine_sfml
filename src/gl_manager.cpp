@@ -11,22 +11,29 @@ Contains the methods of GLManager class
 /******************************************************************************/
 
 #include <gl_manager.hpp>
-#include <debug_tool.hpp>
+#include <debug_tools.hpp>
 #include <shader.hpp>
-#include <json_parser.hpp>
 
 jeBegin
 
 GLManager::Shaders GLManager::shader_;
+float GLManager::width_ = 0.f, GLManager::height_ = 0.f;
 GLint GLManager::buffers_, GLManager::samples_, GLManager::attributes_;
 
-void GLManager::initialize()
+void GLManager::initialize(float w, float h)
 {
+	width_ = w, height_ = h;
+
 	// force GLEW to use a modern OpenGL method
 	glewExperimental = GL_TRUE;
 
 	// before using shader, initialize glew.
 	DEBUG_ASSERT(glewInit() == GLEW_OK, "Failed to initialize GLEW");
+
+	GLuint vertexBuffer;
+	glGenBuffers(1, &vertexBuffer);
+
+	printf("%u\n", vertexBuffer);
 
 	// show GL version info
 	const GLubyte* pRenderer_ = glGetString(GL_RENDERER);
@@ -52,8 +59,10 @@ void GLManager::initialize()
 
 void GLManager::update(const sf::Event& event)
 {
-	if (event.type == sf::Event::Resized)
+	if (event.type == sf::Event::Resized) {
 		glViewport(0, 0, event.size.width, event.size.height);
+		width_ = float(event.size.width), height_ = float(event.size.height);
+	}
 	else if (event.type == sf::Event::Closed) {
 		// TODO
 	}
@@ -72,21 +81,26 @@ void GLManager::initialize_shaders()
 	// do shader stuff
 	for (unsigned i = 0; i < JE_SHADER_END; ++i) {
 
-		shader_.push_back(new Shader);
-		shader_[i]->create_shader(Shader::vsDirectory_[i], Shader::JE_VERTEX);
+		Shader* newShader = new Shader;
+		newShader->create_shader(Shader::vsDirectory_[i], Shader::JE_VERTEX);
 
 		// TODO
 		// Work on geometry shader
 		//shader_[i]->CreateShader(Shader::m_geometryShader[i], Shader::JE_GEOMETRY);
 
-		shader_[i]->create_shader(Shader::fsDirectory_[i], Shader::JE_PIXEL);
+		newShader->create_shader(Shader::fsDirectory_[i], Shader::JE_PIXEL);
+		newShader->combine_shaders();
 
-		shader_[i]->combine_shaders();
+		shader_.push_back(newShader);
 	}
 
 	jeDebugPrint("*GLManager - Compiled and linked shaders.\n");
 }
-//
+
+float GLManager::get_width() { return width_; }
+
+float GLManager::get_height() { return height_; }
+
 //sf::ContextSettings GLManager::get_context_settings()
 //{
 //

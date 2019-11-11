@@ -14,7 +14,7 @@ Contains the methods of application class
 #include <application.hpp>
 #include <random.hpp>
 #include <json_parser.hpp>
-#include <debug_tool.hpp>
+#include <debug_tools.hpp>
 #include <scene_manager.hpp>
 #include <asset_manager.hpp>
 #include <input_handler.hpp>
@@ -52,6 +52,7 @@ void Application::run()
 
 bool Application::initialize()
 {
+
 	// load app init data
 	JsonParser::read_file(AssetManager::initDirectory_.c_str());
 
@@ -74,38 +75,21 @@ bool Application::initialize()
 
 	Random::seed();
 
-	// instantiate a context to load Opengl resources
-	// and load shaders
-	sf::Context context;
-	AssetManager::load_shaders();
-	GLManager::initialize();
-
-	// initialize components and assets
-	AssetManager::set_bulit_in_components();
-	AssetManager::load_assets();
-
-	// initialize key map
-	InputHandler::initialize();
-
-	// TODO: REDO THE FULLSCREEN PART
-	// Create window
-	/*if (data_.isFullscreen)
-		window_.create(sf::VideoMode(data_.width, data_.height), data_.title, sf::Style::Fullscreen);
-	else */
-
+	// instantiate a context to load Opengl resources and load shaders
 	sf::ContextSettings settings;
 	settings.depthBits = 24;
 	settings.stencilBits = 8;
-	//settings.antialiasingLevel = 4;
+	// todo
+	// settings.antialiasingLevel = 2;
 	settings.majorVersion = 4;
-	settings.minorVersion = 3;
+	settings.minorVersion = 5;
 	settings.attributeFlags = sf::ContextSettings::Core;
 
 	// create a window
 	window_.create(
-		sf::VideoMode(data_.width, data_.height), 
-		data_.title.c_str(), 
-		sf::Style::Default, 
+		sf::VideoMode(data_.width, data_.height),
+		data_.title.c_str(),
+		sf::Style::Titlebar,
 		settings);
 
 	window_.setFramerateLimit(60);	// limit 60 frames
@@ -113,6 +97,22 @@ bool Application::initialize()
 
 	// activate the OpenGL context
 	window_.setActive(true);
+
+	// TODO: REDO THE FULLSCREEN PART
+	// Create window
+	/*if (data_.isFullscreen)
+		window_.create(sf::VideoMode(data_.width, data_.height), data_.title, sf::Style::Fullscreen);
+	else */
+
+	AssetManager::load_shaders();
+	GLManager::initialize(float(data_.width), float(data_.height));
+
+	// initialize components and assets
+	AssetManager::set_bulit_in_components();
+	AssetManager::load_assets();
+
+	// initialize key map
+	InputHandler::initialize();
 
 	return true;
 }

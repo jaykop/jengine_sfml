@@ -3,7 +3,6 @@
 #include <math.hpp>
 #include <algorithm>
 
-using namespace std;
 using namespace Math;
 
 const mat3 mat3::identity = mat3(1.0f, 0.0f, 0.0f,
@@ -11,8 +10,10 @@ const mat3 mat3::identity = mat3(1.0f, 0.0f, 0.0f,
 	0.0f, 0.0f, 1.0f);
 
 mat3::mat3(void)
-{
-}
+	: m00(1.f), m01(0.f), m02(0.f), 
+	m10(0.f), m11(1.f), m12(0.f),
+	m20(0.f), m21(0.f), m22(1.f)
+{}
 
 mat3::mat3(float _m00, float _m01, float _m02,
 	float _m10, float _m11, float _m12,
@@ -72,9 +73,9 @@ mat3 mat3::inverted(void) const
 
 mat3& mat3::transpose(void)
 {
-	swap(m01, m10);
-	swap(m02, m20);
-	swap(m12, m21);
+	std::swap(m01, m10);
+	std::swap(m02, m20);
+	std::swap(m12, m21);
 
 	return (*this);
 }

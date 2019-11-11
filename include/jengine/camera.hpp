@@ -15,7 +15,7 @@ public:
 	float fovy_, near_, far_;
 
 	void set_camera(const vec3& eye, const vec3& look, const vec3& up, float fov, float aspect, float distance);
-	//const vec3& get_viewGeometry() const;
+	const vec3& get_viewGeometry() const;
 
 	float get_aspect() const;
 	float get_distance() const;

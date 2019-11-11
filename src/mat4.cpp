@@ -3,7 +3,6 @@
 #include <math.hpp>
 #include <algorithm>
 
-using namespace std;
 using namespace Math;
 
 const mat4 mat4::identity = mat4(1.0f, 0.0f, 0.0f, 0.0f,
@@ -12,8 +11,11 @@ const mat4 mat4::identity = mat4(1.0f, 0.0f, 0.0f, 0.0f,
 	0.0f, 0.0f, 0.0f, 1.0f);
 
 mat4::mat4(void)
-{
-}
+	: m00(1.f), m01(0.f), m02(0.f), m03(0.f)
+	, m10(0.f), m11(1.f), m12(0.f), m13(0.f)
+	, m20(0.f), m21(0.f), m22(1.f), m23(0.f)
+	, m30(0.f), m31(0.f), m32(0.f), m33(1.f)
+{}
 
 mat4::mat4(float _m00, float _m01, float _m02, float _m03,
 	float _m10, float _m11, float _m12, float _m13,

@@ -12,7 +12,7 @@ Contains the methods of Object class
 
 #include <object.hpp>
 #include <component.hpp>
-#include <debug_tool.hpp>
+#include <debug_tools.hpp>
 #include <object_manager.hpp>
 #include <component_manager.hpp>
 

@@ -12,7 +12,7 @@ Contains the methods of the debug console
 
 #include <string>
 #include <sstream>
-#include <debug_tool.hpp>
+#include <debug_tools.hpp>
 
 namespace DebugTools
 {
@@ -71,7 +71,7 @@ namespace DebugTools
 
 		freopen_s(&pFile, "CONOUT$", "wt", stdout);
 		freopen_s(&pFile, "CONOUT$", "wt", stderr);
-		SetConsoleTitle("JEngine Debug Console");
+		SetConsoleTitle("Debug Console");
 	}
 
 	/******************************************************************************/

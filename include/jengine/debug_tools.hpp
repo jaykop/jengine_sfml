@@ -1,6 +1,6 @@
 /******************************************************************************/
 /*!
-\file   debug_tool.hpp
+\file   debug_tools.hpp
 \author Jeong Juyong
 \par    email: jaykop.jy\@gmail.com
 \date   2019/06/02(yy/mm/dd)
@@ -66,7 +66,7 @@ namespace DebugTools
 #else
 //Debug Macros do nothing in release mode
 //Use this macro instead of the function to ASSERT in debug only
-#define DEBUG_ASSERT(expression, outputMessage)
+#define DEBUG_ASSERT(expression, outputMessage) expression;
 #define DEBUG_CREATE_CONSOLE()
 #define DEBUG_DESTROY_CONSOLE()
 #define DEBUG_PRINT(...)

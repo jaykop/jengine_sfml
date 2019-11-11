@@ -118,9 +118,6 @@
     <ClInclude Include="..\..\include\jengine\key_map.hpp">
       <Filter>core\input</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\jengine\debug_tool.hpp">
-      <Filter>utils\debug_tool</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\jengine\gl_manager.hpp">
       <Filter>core\opengl</Filter>
     </ClInclude>
@@ -165,6 +162,12 @@
     </ClInclude>
     <ClInclude Include="..\..\include\jengine\camera.hpp">
       <Filter>system\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\math_util.hpp">
+      <Filter>utils\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\debug_tools.hpp">
+      <Filter>utils\debug_tool</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -216,9 +219,6 @@
     <ClCompile Include="..\..\src\object_manager.cpp">
       <Filter>core\object</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\debug_tool.cpp">
-      <Filter>utils\debug_tool</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\gl_manager.cpp">
       <Filter>core\opengl</Filter>
     </ClCompile>
@@ -251,6 +251,12 @@
     </ClCompile>
     <ClCompile Include="..\..\src\camera.cpp">
       <Filter>system\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\mat4_transform.cpp">
+      <Filter>utils\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\debug_tools.cpp">
+      <Filter>utils\debug_tool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -13,7 +13,7 @@ Contains the definition of SceneManager class
 #pragma once
 
 // Main scene manager class
-#include <Graphics/RenderWindow.hpp>
+#include <Window.hpp>
 #include <vector>
 #include <string>
 #include <timer.hpp>

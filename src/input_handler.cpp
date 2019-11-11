@@ -10,7 +10,7 @@ Contains the methods of InputHandler class
 */
 /******************************************************************************/
 
-#include <debug_tool.hpp>
+#include <debug_tools.hpp>
 #include <input_handler.hpp>
 
 #include <iostream>

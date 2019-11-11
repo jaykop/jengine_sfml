@@ -13,7 +13,7 @@ Contains the inline methods of ComponentManager class
 #pragma once
 #include <typeinfo>
 #include <macros.hpp>
-#include <debug_tool.hpp>
+#include <debug_tools.hpp>
 #include <component_manager.hpp>
 
 jeBegin

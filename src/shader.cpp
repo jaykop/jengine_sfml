@@ -1,6 +1,4 @@
-#include <glew.h>
 #include <shader.hpp>
-#include <vector>
 #include <fstream>
 
 jeBegin
@@ -14,6 +12,25 @@ Shader::Shader() : programId_(0), vertexId_(0),
 
 void Shader::create_shader(const char* file_path, Type type)
 {
+	// Create the shader
+	GLuint localShader = 0;
+
+	switch (type) {
+
+	case JE_VERTEX:
+		vertexId_ = glCreateShader(GL_VERTEX_SHADER);
+		localShader = vertexId_;
+		break;
+	case JE_PIXEL:
+		fragmentId_ = glCreateShader(GL_FRAGMENT_SHADER);
+		localShader = fragmentId_;
+		break;
+	case JE_GEOMETRY:
+		geometryId_ = glCreateShader(GL_GEOMETRY_SHADER);
+		localShader = geometryId_;
+		break;
+	}
+
 	std::string shaderCode;
 	std::ifstream shaderStream(file_path, std::ios::in);
 	if (shaderStream.is_open()) {
@@ -22,37 +39,20 @@ void Shader::create_shader(const char* file_path, Type type)
 			shaderCode += "\n" + Line;
 		shaderStream.close();
 	}
-
-	// Create the shader
-	GLuint* shader = nullptr;
-
-	switch (type)
-	{
-	case JE_VERTEX:
-		vertexId_ = glCreateShader(GL_VERTEX_SHADER);
-		shader = &vertexId_;
-		break;
-	case JE_PIXEL:
-		fragmentId_ = glCreateShader(GL_FRAGMENT_SHADER);
-		shader = &fragmentId_;
-		break;
-	case JE_GEOMETRY:
-		geometryId_ = glCreateShader(GL_GEOMETRY_SHADER);
-		shader = &geometryId_;
-		break;
-	}
-
-	char const* SourcePointer = shaderCode.c_str();
-	glShaderSource(*shader, 1, &SourcePointer, nullptr);
-	glCompileShader(*shader);
+	
+	char const* sourcePointer = shaderCode.c_str();
+	int length = int(shaderCode.size());
+	
+	glShaderSource(localShader, 1, &sourcePointer, &length);
+	glCompileShader(localShader);
 
 	// Check shader
-	glGetShaderiv(*shader, GL_COMPILE_STATUS, &result_);
-	glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &infoLogLength_);
+	glGetShaderiv(localShader, GL_COMPILE_STATUS, &result_);
+	glGetShaderiv(localShader, GL_INFO_LOG_LENGTH, &infoLogLength_);
 
 	if (infoLogLength_ > 0) {
 		std::vector<char> ShaderErrorMessage(infoLogLength_ + int(1));
-		glGetShaderInfoLog(*shader, infoLogLength_, nullptr, &ShaderErrorMessage[0]);
+		glGetShaderInfoLog(localShader, infoLogLength_, nullptr, &ShaderErrorMessage[0]);
 		jeDebugPrint("!Shader - %4s\n", &ShaderErrorMessage[0]);
 	}
 }

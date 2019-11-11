@@ -16,6 +16,7 @@ Contains the definition of Component class
 
 jeBegin
 
+class Object;
 class Component {
 
 	friend class Object;

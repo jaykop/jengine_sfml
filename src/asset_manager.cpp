@@ -14,7 +14,7 @@ Contains the methods of asset_manager class
 #include <asset_manager.hpp>
 #include <thread>
 #include <json_parser.hpp>
-#include <debug_tool.hpp>
+#include <debug_tools.hpp>
 #include <gl_manager.hpp>
 #include <shader.hpp>
 
@@ -32,6 +32,7 @@ void AssetManager::load_shaders() {
 
 	// raed shader directory
 	JsonParser::read_file("../../shader/shaders.json");
+	//JsonParser::read_file("resource/shader/shaders.json");
 	const rapidjson::Value& vs = JsonParser::get_document()["vertex"];
 	const rapidjson::Value& fs = JsonParser::get_document()["fragment"];
 	const unsigned shader_size = vs.Size();

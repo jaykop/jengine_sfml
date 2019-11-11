@@ -11,9 +11,8 @@ Contains the definition of GLManager class
 /******************************************************************************/
 #pragma once
 
-#include <glew.h>
 #define GLEW_STATIC
-#include <OpenGL.hpp>
+#include <glew.h>
 #include <Window.hpp>
 #include <macros.hpp>
 
@@ -32,9 +31,12 @@ class GLManager
 
 public:
 
+	static float get_width();
+	static float get_height();
+
 private:
 
-	static void initialize();
+	static void initialize(float w, float h);
 	static void update(const sf::Event& event);
 	static void close();
 
@@ -48,6 +50,7 @@ private:
 	GLManager& operator= (GLManager&&) = delete;
 	GLManager& operator= (const GLManager&) = delete;
 
+	static float width_, height_;
 	static GLint buffers_, samples_, attributes_;
 	static Shaders shader_;
 };

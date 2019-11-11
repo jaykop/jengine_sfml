@@ -11,7 +11,8 @@ Contains the definition of Shader class
 /******************************************************************************/
 #pragma once
 
-#include <OpenGL.hpp>
+#define GLEW_STATIC
+#include <glew.h>
 #include <macros.hpp>
 #include <mat4.hpp>
 #include <vec4.hpp>

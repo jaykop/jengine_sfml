@@ -10,7 +10,7 @@ Contains the methods of ComponentManager class
 */
 /******************************************************************************/
 #include <component_manager.hpp>
-#include <debug_tool.hpp>
+#include <debug_tools.hpp>
 #include <component_builder.hpp>
 
 jeBegin

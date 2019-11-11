@@ -12,7 +12,7 @@ Contains the methods of SceneManager class
 
 #include <scene.hpp>
 #include <scene_manager.hpp>
-#include <debug_tool.hpp>
+#include <debug_tools.hpp>
 
 jeBegin
 
