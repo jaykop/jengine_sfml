@@ -28,7 +28,11 @@ void GLManager::initialize(float w, float h)
 	glewExperimental = GL_TRUE;
 
 	// before using shader, initialize glew.
+#if defined(_DEBUG)
 	DEBUG_ASSERT(glewInit() == GLEW_OK, "Failed to initialize GLEW");
+#else
+	glewInit();
+#endif
 
 	GLuint vertexBuffer;
 	glGenBuffers(1, &vertexBuffer);

@@ -12,22 +12,39 @@ Contains the definition of GraphicSystem class
 
 #pragma once
 #include <macros.hpp>
+#include <vec4.hpp>
 
 jeBegin
 
+class Camera;
+class Model;
 class GraphicSystem {
 
 	friend class Scene;
 
 public:
 
+	static void set_camera(Camera* mainCameras);
+	static Camera get_camera();
 
+	vec4 backgroundColor_, screenColor_;
 
 private:
 
 	static void initialize();
 	static void update();
 	static void close();
+
+	void add_model(Model* pModel);
+	void remove_model(Model* pMmodel);
+
+	void add_camera(Camera* pCamera);
+	void remove_camera(Camera* pCamera);
+
+	//void add_light(Light* pLight);
+	//void remove_light(Light* pLight);
+
+	void render();
 
 	GraphicSystem() = delete;
 	~GraphicSystem() = delete;

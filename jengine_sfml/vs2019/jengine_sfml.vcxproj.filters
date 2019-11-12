@@ -58,7 +58,10 @@
     <Filter Include="utils\random">
       <UniqueIdentifier>{07821819-b940-4f9b-8521-60e049329ee1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utils\debug_tool">
+    <Filter Include="utils\lodepng">
+      <UniqueIdentifier>{683beca3-d076-4b83-bf68-694175e4617d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils\debug_tools">
       <UniqueIdentifier>{13cc8818-501d-4576-8d73-ddeacae338c1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -154,9 +157,6 @@
     <ClInclude Include="..\..\include\jengine\shader.hpp">
       <Filter>core\opengl</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\jengine\graphics.hpp">
-      <Filter>system\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\jengine\transform.hpp">
       <Filter>system\physics</Filter>
     </ClInclude>
@@ -167,7 +167,16 @@
       <Filter>utils\math</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\jengine\debug_tools.hpp">
-      <Filter>utils\debug_tool</Filter>
+      <Filter>utils\debug_tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\jengine\model.hpp">
+      <Filter>system\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\lodepng\lodepng_util.h">
+      <Filter>utils\lodepng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\lodepng\lodepng.h">
+      <Filter>utils\lodepng</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -243,9 +252,6 @@
     <ClCompile Include="..\..\src\shader.cpp">
       <Filter>core\opengl</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\graphics.cpp">
-      <Filter>system\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\transform.cpp">
       <Filter>system\physics</Filter>
     </ClCompile>
@@ -256,7 +262,16 @@
       <Filter>utils\math</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\debug_tools.cpp">
-      <Filter>utils\debug_tool</Filter>
+      <Filter>utils\debug_tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\model.cpp">
+      <Filter>system\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\lodepng\lodepng_util.cpp">
+      <Filter>utils\lodepng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\lodepng\lodepng.cpp">
+      <Filter>utils\lodepng</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

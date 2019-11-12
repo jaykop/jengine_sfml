@@ -18,11 +18,11 @@ Contains the definition of asset_manager class
 jeBegin
 
 class Mesh;
-class Font;
 class Audio;
 class Scene;
 class Texture;
 class Archetype;
+struct Font;
 
 // generic asset manager class
 class AssetManager {
@@ -42,7 +42,7 @@ class AssetManager {
 
 public:
 
-	static void	take_screenshot(const char* directory = nullptr);
+	static void generate_screenshot(const char* directory);
 
 	static void	set_initdata_directory(const char* dir);
 	static void	set_asset_directory(const char* dir);
@@ -57,19 +57,16 @@ public:
 
 private:
 
-	static std::string initDirectory_, assetDirectory_,
-		stateDirectory_, archeDirectory_;
-
 	static void load_shaders();
 	static void load_font(const char* path, const char* audioKey, unsigned size,
 		unsigned long start, unsigned long end);
-	static void load_characters(Font* pFont, float& newLineLevel, unsigned long start, unsigned long end);
+	static void load_characters(Font* font, float& newLineLevel, unsigned long start, unsigned long end);
 	static void load_audio(const char* path, const char* audioKey);
 	static void load_image(const char* path, const char* textureKey);
 	static void register_image(Image& image, const char* textureKey);
 	static void load_archetype(const char* path, const char* archetypeKey);
-	static Mesh* load_obj(const char* path);
-
+	static Mesh* load_object(const char* path);
+	
 	static bool set_bulit_in_components();
 	static void load_assets();
 	static void unload_assets();
@@ -79,9 +76,12 @@ private:
 
 	static FontMap		fontMap_;
 	static AudioMap		audioMap_;
-	static SceneMap		stateMap_;
+	static SceneMap		sceneMap_;
 	static TextureMap	textureMap_;
 	static ArchetypeMap	archetypeMap_;
+
+	static std::string initDirectory_, assetDirectory_,
+		stateDirectory_, archeDirectory_;
 
 };
 

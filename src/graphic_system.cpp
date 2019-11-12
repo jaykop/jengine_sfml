@@ -31,4 +31,24 @@ void GraphicSystem::close()
 
 }
 
+void GraphicSystem::add_model(Model* pModel)
+{
+}
+
+void GraphicSystem::remove_model(Model* pMmodel)
+{
+}
+
+void GraphicSystem::add_camera(Camera* pCamera)
+{
+}
+
+void GraphicSystem::remove_camera(Camera* pCamera)
+{
+}
+
+void GraphicSystem::render()
+{
+}
+
 jeEnd
